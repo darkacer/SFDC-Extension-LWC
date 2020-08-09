@@ -15,6 +15,10 @@
         <template key={action.id} if:true={action.show}>
             <div key={action.id} id={action.id} class={action.classname}>
                 <h3>{action.name}</h3>
+                <my-current-action
+                    key={action.id}
+                    page-type={action.api}
+                ></my-current-action>
             </div>
         </template>
     </template>
