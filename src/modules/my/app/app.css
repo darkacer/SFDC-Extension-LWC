@@ -1,38 +1,23 @@
-.center {
-    text-align: center;
-}
-.link {
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    background-color: #ff6000;
+.green {
     color: white;
-    margin-left: 33%;
-    margin-right: 33%;
-    display: inline-block;
-    margin-top: 1em;
-}
-.info {
-    color: black;
-    background-color: #e4f2f8;
-    margin: auto;
-    padding: 15px 10px;
+    background-color: green;
+    padding: 6px 5px;
     text-align: left;
     width: 300px;
     border-radius: 5px;
-}
-.code {
-    font-family: monospace;
-}
-.container {
-    margin-top: 30px;
+    border-color: black;
+    border-style: solid;
+    margin-top: 1px;
 }
 
-img {
-    max-width: 150px;
-}
-
-.greeting {
-    height: 75px;
+.white {
+    color: black;
+    background-color: #e4f2f8;
+    padding: 6px 5px;
+    text-align: left;
+    width: 300px;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    margin-top: 1px;
 }

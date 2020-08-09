@@ -3,7 +3,14 @@
         HI
     </div>
     <template for:each={rows} for:item="row">
-        row = {row.domain}
+        <div
+            key={row.index}
+            onclick={handleOrgSelect}
+            data-index={row.index}
+            class={row.class}
+        >
+            {row.domain}
+        </div>
     </template>
 
     <my-choose-component> </my-choose-component>
