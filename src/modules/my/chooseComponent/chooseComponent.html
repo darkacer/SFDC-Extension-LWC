@@ -1,0 +1,21 @@
+<template>
+    <div class="tab">
+        <template for:each={actions} for:item="action">
+            <button
+                key={action.id}
+                data-index={action.id}
+                class={action.buttClass}
+                onclick={openAction}
+            >
+                {action.name}
+            </button>
+        </template>
+    </div>
+    <template for:each={actions} for:item="action">
+        <template key={action.id} if:true={action.show}>
+            <div key={action.id} id={action.id} class={action.classname}>
+                <h3>{action.name}</h3>
+            </div>
+        </template>
+    </template>
+</template>
