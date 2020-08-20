@@ -1,10 +1,14 @@
 {
-    "name": "SFDC-Extension-LWC",
+    "name": "sfdc-extension-lwc",
     "description": "My amazing LWC app",
     "version": "0.0.1",
     "author": "darkacer",
-    "bugs": "https://github.com/darkacer/SFDC-Extension-LWC/issues",
+    "bugs": {
+        "url": "https://github.com/darkacer/SFDC-Extension-LWC/issues"
+    },
     "dependencies": {
+        "@lwc/synthetic-shadow": "^1.7.12",
+        "@salesforce-ux/design-system": "^2.12.2",
         "compression": "^1.7.4",
         "express": "^4.17.1",
         "helmet": "^4.0.0"
@@ -39,7 +43,10 @@
             "eslint"
         ]
     },
-    "repository": "darkacer/SFDC-Extension-LWC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/darkacer/SFDC-Extension-LWC.git"
+    },
     "scripts": {
         "build": "lwc-services build -m production",
         "build:development": "lwc-services build",
@@ -52,5 +59,6 @@
         "test:unit:debug": "lwc-services test:unit --debug",
         "test:unit:watch": "lwc-services test:unit --watch",
         "watch": "lwc-services watch"
-    }
+    },
+    "main": "jest.config.js"
 }

@@ -6,7 +6,7 @@ export default class ChooseComponent extends LightningElement {
             id: 0,
             name: 'Query Maker',
             api: 'queryMaker',
-            show: false,
+            show: true,
             classname: 'tabcontent',
             buttClass: 'tablinks'
         },

@@ -4,6 +4,7 @@ import { LightningElement, track } from 'lwc';
 import { getOrgNames } from 'my/Utils';
 export default class App extends LightningElement {
     @track rows = [];
+    selectIndex = 0;
     // idToOrgObj = [];
 
     connectedCallback() {
@@ -21,12 +22,13 @@ export default class App extends LightningElement {
                 }
             });
             this.rows = [...idToOrgObj];
+            if (this.rows.length) this.rows[0].class = 'green';
         });
     }
 
     handleOrgSelect(event) {
         let index = event.target.dataset.index;
-        console.log('you selected ', this.rows[index]);
+        this.selectIndex = index;
         this.rows.forEach((el) => {
             el.class = 'white';
         });
