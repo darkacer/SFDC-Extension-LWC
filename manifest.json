@@ -13,6 +13,9 @@
         "https://*.salesforce.com/*",
         "https://*.force.com/*"
     ],
+    "icons": {
+        "128": "/src/resources/lwc.png"
+    },
     "background": {
         "scripts": []
     },
