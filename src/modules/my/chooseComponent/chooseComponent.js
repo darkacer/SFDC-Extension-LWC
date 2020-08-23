@@ -1,4 +1,5 @@
 import { LightningElement, track } from 'lwc';
+import { getValue, setValue } from 'my/stateManager';
 
 export default class ChooseComponent extends LightningElement {
     @track actions = [
@@ -51,5 +52,9 @@ export default class ChooseComponent extends LightningElement {
         this.currentAction = this.actions[event.target.dataset.index].api;
 
         console.log(JSON.stringify(this.actions));
+    }
+
+    ondecrease() {
+        setValue('sharedValue', getValue('sharedValue') - 1);
     }
 }

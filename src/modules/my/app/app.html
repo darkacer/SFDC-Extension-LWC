@@ -12,14 +12,16 @@
             {row.domain}
         </div>
     </template>
-
-    <button class="slds-button slds-button_neutral">Neutral Button</button>
-    <button class="slds-button slds-button_brand">Brand Button</button>
-    <button class="slds-button slds-button_outline-brand">
-        Outline Brand Button
+    {sharedValue}
+    <button class="slds-button slds-button_neutral" onclick={onincrease}>
+        Increase button
     </button>
-    <button class="slds-button slds-button_destructive">
-        Destructive Button
+
+    <button
+        class="slds-button slds-button_outline-brand"
+        onclick={refreshState}
+    >
+        Outline Brand Button
     </button>
     <my-choose-component> </my-choose-component>
 

@@ -2,6 +2,7 @@
 /* eslint-disable vars-on-top */
 import { LightningElement, track } from 'lwc';
 import { getOrgNames } from 'my/Utils';
+import { getValue, setValue } from 'my/stateManager';
 export default class App extends LightningElement {
     @track rows = [];
     selectIndex = 0;
@@ -24,6 +25,8 @@ export default class App extends LightningElement {
             this.rows = [...idToOrgObj];
             if (this.rows.length) this.rows[0].class = 'green';
         });
+
+        setValue('sharedValue', 0);
     }
 
     handleOrgSelect(event) {
@@ -33,5 +36,15 @@ export default class App extends LightningElement {
             el.class = 'white';
         });
         this.rows[index].class = 'green';
+    }
+
+    @track sharedValue = 0;
+
+    refreshState() {
+        this.sharedValue = getValue('sharedValue');
+    }
+
+    onincrease() {
+        setValue('sharedValue', getValue('sharedValue') + 1);
     }
 }
