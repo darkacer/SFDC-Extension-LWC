@@ -1,5 +1,6 @@
 let states = {
-    sharedValue: 0
+    sharedValue: 0,
+    sobjectList: []
 };
 
 const setValue = (key, value) => {

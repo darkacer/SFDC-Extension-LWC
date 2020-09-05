@@ -1,7 +1,7 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable vars-on-top */
 import { LightningElement, track } from 'lwc';
-import { getOrgNames } from 'my/Utils';
+import { getOrgNames, fireRest, fireRest2 } from 'my/Utils';
 import { getValue, setValue } from 'my/stateManager';
 export default class App extends LightningElement {
     @track rows = [];
@@ -24,6 +24,25 @@ export default class App extends LightningElement {
             });
             this.rows = [...idToOrgObj];
             if (this.rows.length) this.rows[0].class = 'green';
+            console.log('this rows ', JSON.stringify(this.rows));
+
+            fireRest(this.rows[0].domain, 'sobjects/', this.rows[0].value).then(
+                (response) => {
+                    console.log(response, 'response');
+                    if (response.status === 200) {
+                        console.log('body', response);
+                    }
+                }
+            );
+
+            fireRest2(
+                this.rows[0].domain,
+                'sobjects/',
+                this.rows[0].value
+            ).then((response) => {
+                console.log('response =>', response.sobjects[0].name);
+                setValue('sobjectList', response.sobjects);
+            });
         });
 
         setValue('sharedValue', 0);

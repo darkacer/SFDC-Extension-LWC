@@ -1,0 +1,22 @@
+<template>
+    Query:
+    <textarea
+        value={query}
+        placeholder="Your Query Here"
+        name="Query Caller"
+        rows="4"
+        cols="50"
+        data-name="query"
+        onchange={handleChange}
+    ></textarea>
+    Key:
+    <input
+        type="text"
+        value={key}
+        placeholder="Comma Separated Column names"
+        data-name="key"
+    />
+    Tooling API:
+    <input type="checkbox" data-name="tooling" value={toolingQuery} />
+    <input type="button" value="Query!" onclick={fireQuery} />
+</template>
