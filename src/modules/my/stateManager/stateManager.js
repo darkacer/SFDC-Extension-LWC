@@ -1,6 +1,8 @@
 let states = {
     sharedValue: 0,
-    sobjectList: []
+    sobjectList: [],
+    idToOrgObj: {},
+    selectIndex: 0
 };
 
 const setValue = (key, value) => {

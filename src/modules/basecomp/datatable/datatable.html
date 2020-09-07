@@ -1,0 +1,31 @@
+<template>
+    size newRecordList{newRecordList.length} finalData = {finalData.length}
+    <template if:true={finalData.length}>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset" key={col}>
+                    <template for:each={columns2} for:item="col">
+                        <th class="" scope="col" key={col}>
+                            <div class="slds-truncate" title={col} key={col}>
+                                <b>{col}</b>
+                            </div>
+                        </th>
+                    </template>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={finalData} for:item="row">
+                    <tr key={row._id} class="slds-hint-parent">
+                        <template for:each={row.array} for:item="col">
+                            <td key={col.id}>
+                                <div class="slds-truncate" title={col.id}>
+                                    {col.value}
+                                </div>
+                            </td>
+                        </template>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+</template>

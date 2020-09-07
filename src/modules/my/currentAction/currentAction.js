@@ -12,6 +12,10 @@ export default class CurrentAction extends LightningElement {
     @api pageType = '';
 
     @track sobjectList = [];
+    @track records = [];
+
+    truthy = true;
+    falsy = false;
 
     get sobjectNames() {
         return this.sobjectList.map((el) => {
@@ -45,5 +49,12 @@ export default class CurrentAction extends LightningElement {
         for (let i = 0; i < 10; i++) {
             console.log(JSON.stringify(this.sobjectList[i]));
         }
+    }
+
+    // used in query maker reponse
+    handleResponse(event) {
+        this.records = [];
+        console.log('inside handle response ' + event.detail.records);
+        this.records = [...event.detail.records];
     }
 }

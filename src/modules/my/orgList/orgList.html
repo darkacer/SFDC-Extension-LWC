@@ -1,0 +1,17 @@
+<template>
+    <template if:true={rows.length}>
+        <template for:each={rows} for:item="row">
+            <div
+                key={row.index}
+                onclick={handleOrgSelect}
+                data-index={row.index}
+                class={row.class}
+            >
+                {row.domain}
+            </div>
+        </template>
+    </template>
+    <template if:false={rows.length}>
+        You seem to be not connected to any of the SalesForce Orgs
+    </template>
+</template>

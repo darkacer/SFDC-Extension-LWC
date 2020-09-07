@@ -1,6 +1,9 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-undef */
+import { getValue } from 'my/stateManager';
 const myBrowser = typeof chrome === 'undefined' ? browser : chrome;
+const serviceData = '/services/data';
+const version = '/v48.0/';
 
 const getOrgNames = (callback) => {
     myBrowser.cookies.getAll(
@@ -12,8 +15,6 @@ const getOrgNames = (callback) => {
 };
 
 const fireRest = (orgURL, purpose, token) => {
-    const serviceData = '/services/data';
-    const version = '/v48.0/';
     let url = 'https://' + orgURL + serviceData + version + purpose;
     let settings = {
         async: true,
@@ -23,13 +24,10 @@ const fireRest = (orgURL, purpose, token) => {
             authorization: 'Bearer ' + token
         }
     };
-    console.log(url);
     return fetch(url, settings);
 };
 
 const fireRest2 = async (orgURL, purpose, token) => {
-    const serviceData = '/services/data';
-    const version = '/v48.0/';
     let url = 'https://' + orgURL + serviceData + version + purpose;
     let settings = {
         async: true,
@@ -48,7 +46,7 @@ const flattenObject = (ob) => {
     let newObject = {};
     for (let i in ob) {
         if (typeof ob[i] === 'object' && ob[i] !== null) {
-            let retObj = this.flattenObject(ob[i]);
+            let retObj = flattenObject(ob[i]);
             for (let j in retObj) {
                 newObject[i.toLowerCase() + '.' + j.toLowerCase()] = retObj[j];
             }
@@ -59,4 +57,31 @@ const flattenObject = (ob) => {
     return newObject;
 };
 
-export { getOrgNames, fireRest, fireRest2, flattenObject };
+const getOrgUrl = (id) => {
+    return id
+        ? getValue('idToOrgObj')[id].domain
+        : getValue('idToOrgObj')[getValue('selectIndex')].domain;
+};
+const getOrgToken = (id) => {
+    return id
+        ? getValue('idToOrgObj')[id].value
+        : getValue('idToOrgObj')[getValue('selectIndex')].value;
+};
+const makeQueryAll = (orgURL, token, query) => {
+    query = query.replace(/\s\s+/g, ' ');
+    return fireRest2(orgURL, 'query/?q=' + query, token);
+};
+
+const makeQuery = (query) => {
+    query = query.replace(/\s\s+/g, ' ');
+    return fireRest2(getOrgUrl(), 'query/?q=' + query, getOrgToken());
+};
+
+export {
+    getOrgNames,
+    fireRest,
+    fireRest2,
+    flattenObject,
+    makeQuery,
+    makeQueryAll
+};

@@ -8,8 +8,8 @@ export default class ChooseComponent extends LightningElement {
             name: 'Query Maker',
             api: 'queryMaker',
             show: true,
-            classname: 'tabcontent',
-            buttClass: 'tablinks'
+            classname: 'tabcontent active',
+            buttClass: 'tablinks active'
         },
         {
             id: 1,
