@@ -1,0 +1,857 @@
+[
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/basecomp/datatable/datatable.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "api",
+                    "targets": [
+                        {
+                            "type": "property",
+                            "name": "newRecordList",
+                            "value": { "type": "array", "value": [] }
+                        },
+                        { "type": "method", "name": "timepass" }
+                    ]
+                },
+                {
+                    "type": "track",
+                    "targets": [
+                        { "name": "columns2", "type": "property" },
+                        { "name": "finalData", "type": "property" },
+                        { "name": "recordList", "type": "property" }
+                    ]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 6, "column": 0 },
+                "end": { "line": 67, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "columns2",
+                    "loc": {
+                        "start": { "line": 7, "column": 4 },
+                        "end": { "line": 7, "column": 25 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "property",
+                    "name": "finalData",
+                    "loc": {
+                        "start": { "line": 8, "column": 4 },
+                        "end": { "line": 8, "column": 26 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "property",
+                    "name": "newRecordList",
+                    "loc": {
+                        "start": { "line": 9, "column": 4 },
+                        "end": { "line": 9, "column": 28 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "array", "value": [] }
+                },
+                {
+                    "type": "property",
+                    "name": "recordList",
+                    "loc": {
+                        "start": { "line": 10, "column": 4 },
+                        "end": { "line": 10, "column": 27 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "method",
+                    "name": "connectedCallback",
+                    "loc": {
+                        "start": { "line": 12, "column": 4 },
+                        "end": { "line": 15, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "timepass",
+                    "loc": {
+                        "start": { "line": 17, "column": 4 },
+                        "end": { "line": 21, "column": 5 }
+                    },
+                    "decorator": "api"
+                },
+                {
+                    "type": "method",
+                    "name": "processData2",
+                    "loc": {
+                        "start": { "line": 23, "column": 4 },
+                        "end": { "line": 36, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "generateColumnNames",
+                    "loc": {
+                        "start": { "line": 38, "column": 4 },
+                        "end": { "line": 44, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "getNonNullKeys",
+                    "loc": {
+                        "start": { "line": 46, "column": 4 },
+                        "end": { "line": 50, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "convertData",
+                    "loc": {
+                        "start": { "line": 52, "column": 4 },
+                        "end": { "line": 66, "column": 5 }
+                    }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-09-07T11:02:24.502Z"
+    },
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/basecomp/icon/icon.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "api",
+                    "targets": [
+                        {
+                            "type": "property",
+                            "name": "iconName",
+                            "value": { "type": "unresolved" }
+                        },
+                        {
+                            "type": "property",
+                            "name": "size",
+                            "value": { "type": "unresolved" }
+                        }
+                    ]
+                },
+                {
+                    "type": "track",
+                    "targets": [{ "name": "link", "type": "property" }]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 3, "column": 0 },
+                "end": { "line": 11, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "link",
+                    "loc": {
+                        "start": { "line": 4, "column": 4 },
+                        "end": { "line": 4, "column": 16 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "property",
+                    "name": "iconName",
+                    "loc": {
+                        "start": { "line": 5, "column": 4 },
+                        "end": { "line": 5, "column": 18 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "unresolved" }
+                },
+                {
+                    "type": "property",
+                    "name": "size",
+                    "loc": {
+                        "start": { "line": 6, "column": 4 },
+                        "end": { "line": 6, "column": 14 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "unresolved" }
+                },
+                {
+                    "type": "method",
+                    "name": "connectedCallback",
+                    "loc": {
+                        "start": { "line": 7, "column": 4 },
+                        "end": { "line": 10, "column": 5 }
+                    }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-09-05T01:30:52.373Z"
+    },
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/basecomp/lookup/lookup.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "api",
+                    "targets": [
+                        {
+                            "type": "property",
+                            "name": "itemList",
+                            "value": { "type": "unresolved" }
+                        }
+                    ]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 3, "column": 0 },
+                "end": { "line": 5, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "itemList",
+                    "loc": {
+                        "start": { "line": 4, "column": 4 },
+                        "end": { "line": 4, "column": 18 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "unresolved" }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-09-05T01:30:52.418Z"
+    },
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/basecomp/picklist/picklist.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "api",
+                    "targets": [
+                        {
+                            "type": "property",
+                            "name": "picklistOptions",
+                            "value": { "type": "unresolved" }
+                        },
+                        {
+                            "type": "property",
+                            "name": "value",
+                            "value": { "type": "unresolved" }
+                        },
+                        {
+                            "type": "property",
+                            "name": "label",
+                            "value": { "type": "unresolved" }
+                        },
+                        {
+                            "type": "property",
+                            "name": "index",
+                            "value": { "type": "unresolved" }
+                        },
+                        {
+                            "type": "property",
+                            "name": "fieldApiName",
+                            "value": { "type": "unresolved" }
+                        }
+                    ]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 5, "column": 0 },
+                "end": { "line": 41, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "picklistOptions",
+                    "loc": {
+                        "start": { "line": 6, "column": 4 },
+                        "end": { "line": 6, "column": 25 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "unresolved" }
+                },
+                {
+                    "type": "property",
+                    "name": "value",
+                    "loc": {
+                        "start": { "line": 7, "column": 4 },
+                        "end": { "line": 7, "column": 15 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "unresolved" }
+                },
+                {
+                    "type": "property",
+                    "name": "label",
+                    "loc": {
+                        "start": { "line": 8, "column": 4 },
+                        "end": { "line": 8, "column": 15 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "unresolved" }
+                },
+                {
+                    "type": "property",
+                    "name": "index",
+                    "loc": {
+                        "start": { "line": 9, "column": 4 },
+                        "end": { "line": 9, "column": 15 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "unresolved" }
+                },
+                {
+                    "type": "property",
+                    "name": "fieldApiName",
+                    "loc": {
+                        "start": { "line": 10, "column": 4 },
+                        "end": { "line": 10, "column": 22 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "unresolved" }
+                },
+                {
+                    "type": "method",
+                    "name": "connectedCallback",
+                    "loc": {
+                        "start": { "line": 12, "column": 4 },
+                        "end": { "line": 27, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "handleChange",
+                    "loc": {
+                        "start": { "line": 29, "column": 4 },
+                        "end": { "line": 40, "column": 5 }
+                    }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-09-05T01:30:52.569Z"
+    },
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/my/app/app.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "track",
+                    "targets": [{ "name": "showBody", "type": "property" }]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 6, "column": 0 },
+                "end": { "line": 23, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "showBody",
+                    "loc": {
+                        "start": { "line": 7, "column": 4 },
+                        "end": { "line": 7, "column": 28 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "method",
+                    "name": "handleOrgChange",
+                    "loc": {
+                        "start": { "line": 9, "column": 4 },
+                        "end": { "line": 14, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "getSobjectList",
+                    "loc": {
+                        "start": { "line": 16, "column": 4 },
+                        "end": { "line": 22, "column": 5 }
+                    }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-09-07T11:02:24.644Z"
+    },
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/my/chooseComponent/chooseComponent.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "track",
+                    "targets": [{ "name": "actions", "type": "property" }]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 4, "column": 0 },
+                "end": { "line": 60, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "actions",
+                    "loc": {
+                        "start": { "line": 5, "column": 4 },
+                        "end": { "line": 38, "column": 6 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "property",
+                    "name": "currentAction",
+                    "loc": {
+                        "start": { "line": 39, "column": 4 },
+                        "end": { "line": 39, "column": 23 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "openAction",
+                    "loc": {
+                        "start": { "line": 41, "column": 4 },
+                        "end": { "line": 55, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "ondecrease",
+                    "loc": {
+                        "start": { "line": 57, "column": 4 },
+                        "end": { "line": 59, "column": 5 }
+                    }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-09-05T15:27:42.580Z"
+    },
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/my/currentAction/currentAction.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "api",
+                    "targets": [
+                        {
+                            "type": "property",
+                            "name": "pageType",
+                            "value": { "type": "string" }
+                        }
+                    ]
+                },
+                {
+                    "type": "track",
+                    "targets": [
+                        { "name": "sobjectList", "type": "property" },
+                        { "name": "records", "type": "property" }
+                    ]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 11, "column": 0 },
+                "end": { "line": 60, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "pageType",
+                    "loc": {
+                        "start": { "line": 12, "column": 4 },
+                        "end": { "line": 12, "column": 23 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "string" }
+                },
+                {
+                    "type": "property",
+                    "name": "sobjectList",
+                    "loc": {
+                        "start": { "line": 14, "column": 4 },
+                        "end": { "line": 14, "column": 28 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "property",
+                    "name": "records",
+                    "loc": {
+                        "start": { "line": 15, "column": 4 },
+                        "end": { "line": 15, "column": 24 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "property",
+                    "name": "truthy",
+                    "loc": {
+                        "start": { "line": 17, "column": 4 },
+                        "end": { "line": 17, "column": 18 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "falsy",
+                    "loc": {
+                        "start": { "line": 18, "column": 4 },
+                        "end": { "line": 18, "column": 18 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "sobjectNames",
+                    "loc": {
+                        "start": { "line": 20, "column": 4 },
+                        "end": { "line": 24, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "render",
+                    "loc": {
+                        "start": { "line": 26, "column": 4 },
+                        "end": { "line": 39, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "connectedCallback",
+                    "loc": {
+                        "start": { "line": 41, "column": 4 },
+                        "end": { "line": 43, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "compareData",
+                    "loc": {
+                        "start": { "line": 45, "column": 4 },
+                        "end": { "line": 45, "column": 20 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "getSobjectList",
+                    "loc": {
+                        "start": { "line": 47, "column": 4 },
+                        "end": { "line": 52, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "handleResponse",
+                    "loc": {
+                        "start": { "line": 55, "column": 4 },
+                        "end": { "line": 59, "column": 5 }
+                    }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-09-07T11:02:24.912Z"
+    },
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/my/greeting/greeting.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "api",
+                    "targets": [{ "type": "property", "name": "speed" }]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 23, "column": 0 },
+                "end": { "line": 68, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "animationSpeed",
+                    "loc": {
+                        "start": { "line": 24, "column": 4 },
+                        "end": { "line": 24, "column": 35 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "index",
+                    "loc": {
+                        "start": { "line": 25, "column": 4 },
+                        "end": { "line": 25, "column": 14 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "isAnimating",
+                    "loc": {
+                        "start": { "line": 26, "column": 4 },
+                        "end": { "line": 26, "column": 23 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "speed",
+                    "loc": {
+                        "start": { "line": 28, "column": 4 },
+                        "end": { "line": 36, "column": 5 }
+                    },
+                    "decorator": "api"
+                },
+                {
+                    "type": "property",
+                    "name": "greeting",
+                    "loc": {
+                        "start": { "line": 44, "column": 4 },
+                        "end": { "line": 46, "column": 5 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "animationClass",
+                    "loc": {
+                        "start": { "line": 49, "column": 4 },
+                        "end": { "line": 54, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "handleAnimationEnd",
+                    "loc": {
+                        "start": { "line": 57, "column": 4 },
+                        "end": { "line": 62, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "updateGreeting",
+                    "loc": {
+                        "start": { "line": 65, "column": 4 },
+                        "end": { "line": 67, "column": 5 }
+                    }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-08-09T07:51:07.935Z"
+    },
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/my/orgList/orgList.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "api",
+                    "targets": [
+                        {
+                            "type": "property",
+                            "name": "selectmax",
+                            "value": { "type": "number", "value": 1 }
+                        }
+                    ]
+                },
+                {
+                    "type": "track",
+                    "targets": [{ "name": "rows", "type": "property" }]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 20, "column": 0 },
+                "end": { "line": 101, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "rows",
+                    "loc": {
+                        "start": { "line": 21, "column": 4 },
+                        "end": { "line": 21, "column": 21 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "property",
+                    "name": "selectIndex",
+                    "loc": {
+                        "start": { "line": 22, "column": 4 },
+                        "end": { "line": 22, "column": 20 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "selectmax",
+                    "loc": {
+                        "start": { "line": 23, "column": 4 },
+                        "end": { "line": 23, "column": 23 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "number", "value": 1 }
+                },
+                {
+                    "type": "method",
+                    "name": "connectedCallback",
+                    "loc": {
+                        "start": { "line": 27, "column": 4 },
+                        "end": { "line": 60, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "communicateOrgId",
+                    "loc": {
+                        "start": { "line": 62, "column": 4 },
+                        "end": { "line": 65, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "handleOrgSelect",
+                    "loc": {
+                        "start": { "line": 67, "column": 4 },
+                        "end": { "line": 76, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "newHandleOrgSelect",
+                    "loc": {
+                        "start": { "line": 78, "column": 4 },
+                        "end": { "line": 90, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "setOrg",
+                    "loc": {
+                        "start": { "line": 92, "column": 4 },
+                        "end": { "line": 100, "column": 5 }
+                    }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-10-04T10:37:08.122Z"
+    },
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/my/queryBox/queryBox.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "api",
+                    "targets": [
+                        {
+                            "type": "property",
+                            "name": "showKey",
+                            "value": { "type": "boolean", "value": false }
+                        }
+                    ]
+                },
+                {
+                    "type": "track",
+                    "targets": [{ "name": "records", "type": "property" }]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 4, "column": 0 },
+                "end": { "line": 51, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "query",
+                    "loc": {
+                        "start": { "line": 5, "column": 4 },
+                        "end": { "line": 5, "column": 15 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "key",
+                    "loc": {
+                        "start": { "line": 6, "column": 4 },
+                        "end": { "line": 6, "column": 13 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "toolingQuery",
+                    "loc": {
+                        "start": { "line": 7, "column": 4 },
+                        "end": { "line": 7, "column": 25 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "records",
+                    "loc": {
+                        "start": { "line": 8, "column": 4 },
+                        "end": { "line": 8, "column": 24 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "property",
+                    "name": "showKey",
+                    "loc": {
+                        "start": { "line": 9, "column": 4 },
+                        "end": { "line": 9, "column": 25 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "boolean", "value": false }
+                },
+                {
+                    "type": "method",
+                    "name": "fireQuery",
+                    "loc": {
+                        "start": { "line": 11, "column": 4 },
+                        "end": { "line": 23, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "handleChange",
+                    "loc": {
+                        "start": { "line": 25, "column": 4 },
+                        "end": { "line": 39, "column": 5 }
+                    }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-09-07T11:02:25.362Z"
+    }
+]

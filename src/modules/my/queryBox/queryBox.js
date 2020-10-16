@@ -48,4 +48,8 @@ export default class QueryBox extends LightningElement {
     //     );
     //     this.dispatchEvent(evt);
     // }
+
+    handleClick() {
+        console.log('you clicked! ');
+    }
 }

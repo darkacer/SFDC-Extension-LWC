@@ -1,9 +1,24 @@
-import { LightningElement, track } from 'lwc';
+/* eslint-disable no-unused-vars */
+import { LightningElement, track, api } from 'lwc';
 import { getOrgNames, fireRest2 } from 'my/Utils';
 import { setValue, getValue } from 'my/stateManager';
+
+const selectedOrgs = {
+    size: this.selectmax,
+    queue: [],
+    pushVal(elem) {
+        for (let i = 0; i < this.size; i++) this.queue[i] = this.queue[i + 1];
+        this.queue[this.size - 1] = elem;
+    }
+};
+
+const isSingleMode = () => this.selectmax <= 1;
+
 export default class OrgList extends LightningElement {
     @track rows = [];
     selectIndex = 0;
+    @api selectmax = 1;
+    // selectedOrgs = [0];
     // orgList = [];
 
     connectedCallback() {
@@ -28,14 +43,16 @@ export default class OrgList extends LightningElement {
             });
             setValue('idToOrgObj', idToOrgObj);
             this.rows = [...orgList];
-            if (this.rows.length) {
-                this.rows[0].class = 'green';
-                setValue('selectIndex', 0);
-            } else {
-                setValue('selectIndex', -1);
-                // return
+            if (isSingleMode) {
+                if (this.rows.length) {
+                    this.rows[0].class = 'green';
+                    setValue('selectIndex', 0);
+                    selectedOrgs.pushVal(0);
+                } else {
+                    setValue('selectIndex', -1);
+                }
+                this.communicateOrgId();
             }
-            this.communicateOrgId();
         });
     }
 
@@ -53,6 +70,22 @@ export default class OrgList extends LightningElement {
         this.rows[index].class = 'green';
         setValue('selectIndex', this.selectIndex);
         this.communicateOrgId();
+    }
+
+    newHandleOrgSelect(event) {
+        let index = event.target.dataset.index;
+        selectedOrgs.pushVal(index);
+        this.rows.forEach((el) => {
+            el.class = 'white';
+        });
+        selectedOrgs.queue.forEach((el) => {
+            this.rows[el].class = 'green';
+        });
+
+        if (isSingleMode) {
+            setValue('selectIndex', index);
+            this.communicateOrgId();
+        }
     }
 
     setOrg(index) {
