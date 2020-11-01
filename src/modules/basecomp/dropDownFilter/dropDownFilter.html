@@ -1,0 +1,22 @@
+<template>
+    <lightning-input
+        label="mylabel"
+        value={inputStream}
+        onkeyup={handleKeyUp}
+        onfocus={focusOn}
+        onblur={focusOff}
+    ></lightning-input>
+    <template if:true={isFocused}>
+        <template for:each={filterOptions} for:item="itemName">
+            <div
+                class={itemName.selectedClass}
+                key={itemName.value}
+                onmousedown={handleSelect}
+                data-value={itemName.value}
+                onmouseover={mouseOver}
+            >
+                {itemName.value}
+            </div>
+        </template>
+    </template>
+</template>
