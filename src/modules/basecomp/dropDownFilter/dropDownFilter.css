@@ -2,3 +2,15 @@
     color: black;
     background-color: grey;
 }
+.output {
+    list-style: none;
+    width: 100%;
+    min-height: 0px;
+    border-top: 0 !important;
+    color: black;
+    background-color: white;
+    font-size: 0.75em;
+    transition: min-height 0.2s;
+    position: absolute;
+    z-index: 5;
+}

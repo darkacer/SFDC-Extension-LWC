@@ -4,7 +4,7 @@ import { getOrgNames, fireRest2 } from 'my/Utils';
 import { setValue, getValue } from 'my/stateManager';
 
 const selectedOrgs = {
-    size: this.selectmax,
+    size: 1,
     queue: [],
     pushVal(elem) {
         for (let i = 0; i < this.size; i++) this.queue[i] = this.queue[i + 1];
@@ -27,6 +27,7 @@ export default class OrgList extends LightningElement {
         let index = 0;
         getOrgNames((cookies) => {
             cookies.forEach((elem) => {
+                console.log('elem => ', JSON.stringify(elem));
                 if (new RegExp('.*salesforce.com').test(elem.domain)) {
                     orgList.push({
                         index: index,

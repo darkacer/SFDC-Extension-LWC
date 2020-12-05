@@ -42,13 +42,16 @@ export default class CurrentAction extends LightningElement {
         this.getSobjectList();
     }
 
-    compareData() {}
-
     getSobjectList() {
+        console.log('inside get sobjectlist');
         this.sobjectList = getValue('sobjectList');
         for (let i = 0; i < 10; i++) {
             console.log(JSON.stringify(this.sobjectList[i]));
         }
+    }
+
+    onobjectselect(event) {
+        console.log('you selected = ', event.detail);
     }
 
     // used in query maker reponse

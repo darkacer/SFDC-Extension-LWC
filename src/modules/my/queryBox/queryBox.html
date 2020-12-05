@@ -32,23 +32,36 @@
                     />
                 </div>
             </div>
-            <button class="slds-button slds-button_brand" onclick={fireQuery}>
+            <!-- <button class="slds-button slds-button_brand" onclick={fireQuery}>
                 Query!
-            </button>
+            </button> -->
             <lightning-button
-                variant="base"
-                label="Base"
-                title="Looks like a link"
-                onclick={handleClick}
-                class="slds-var-m-left_x-small"
+                label="Query!"
+                disabled={isQueryButtonDisabled}
+                variant="brand"
+                onclick={fireQuery}
             ></lightning-button>
-            <p>
-                <lightning-formatted-phone
-                    value="1333333"
-                ></lightning-formatted-phone>
-            </p>
         </div>
         <div class="slds-col slds-size_1-of-3">
+            <lightning-button
+                label="Refresh MetaData"
+                title="Gets fresh sObject data from selected Org"
+                onclick={getMetaData}
+            ></lightning-button>
+            <basecomp-drop-down-filter
+                options={sobjectListFormat}
+                max-size="30"
+                input-label="SObject Name"
+                onfinalselect={onobjectselect}
+                if:true={isMetaDataVisible}
+            ></basecomp-drop-down-filter>
+            <basecomp-drop-down-filter
+                options={sObjectFieldList}
+                max-size="30"
+                input-label="Field Name"
+                onfinalselect={onFieldSelect}
+                if:true={sObjectFieldList.length}
+            ></basecomp-drop-down-filter>
             <template if:true={showKey}>
                 <label class="slds-form-element__label" for="input-id-02"
                     >Key:</label

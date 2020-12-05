@@ -12,6 +12,7 @@
         "@lwc/rollup-plugin": "^1.8.4",
         "@lwc/synthetic-shadow": "^1.8.4",
         "@lwc/wire-service": "^1.8.4",
+        "@salesforce/i18n": "0.0.12",
         "compression": "^1.7.4",
         "express": "^4.17.1",
         "helmet": "^4.0.0",
@@ -24,7 +25,7 @@
         "eslint": "^7.6.0",
         "husky": "^4.2.5",
         "lint-staged": "^10.2.11",
-        "lwc-services": "^2.1.4",
+        "lwc-services": "^2.2.2",
         "prettier": "^2.0.5"
     },
     "engines": {

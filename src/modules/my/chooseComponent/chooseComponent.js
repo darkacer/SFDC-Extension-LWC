@@ -2,6 +2,7 @@ import { LightningElement, track } from 'lwc';
 import { getValue, setValue } from 'my/stateManager';
 
 export default class ChooseComponent extends LightningElement {
+    a = 1 / 0;
     @track actions = [
         {
             id: 0,

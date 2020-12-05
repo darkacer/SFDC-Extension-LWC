@@ -1,12 +1,13 @@
 <template>
     <lightning-input
-        label="mylabel"
+        label={inputLabel}
         value={inputStream}
-        onkeyup={handleKeyUp}
+        onkeydown={handleKeyUp}
         onfocus={focusOn}
         onblur={focusOff}
+        aria-autocomplete="false"
     ></lightning-input>
-    <template if:true={isFocused}>
+    <div class="output" if:true={isFocused}>
         <template for:each={filterOptions} for:item="itemName">
             <div
                 class={itemName.selectedClass}
@@ -18,5 +19,5 @@
                 {itemName.value}
             </div>
         </template>
-    </template>
+    </div>
 </template>

@@ -362,7 +362,7 @@
             ],
             "declarationLoc": {
                 "start": { "line": 6, "column": 0 },
-                "end": { "line": 23, "column": 1 }
+                "end": { "line": 35, "column": 1 }
             },
             "classMembers": [
                 {
@@ -375,25 +375,41 @@
                     "decorator": "track"
                 },
                 {
+                    "type": "property",
+                    "name": "deletemeLater",
+                    "loc": {
+                        "start": { "line": 8, "column": 4 },
+                        "end": { "line": 16, "column": 6 }
+                    }
+                },
+                {
                     "type": "method",
                     "name": "handleOrgChange",
                     "loc": {
-                        "start": { "line": 9, "column": 4 },
-                        "end": { "line": 14, "column": 5 }
+                        "start": { "line": 17, "column": 4 },
+                        "end": { "line": 22, "column": 5 }
                     }
                 },
                 {
                     "type": "method",
                     "name": "getSobjectList",
                     "loc": {
-                        "start": { "line": 16, "column": 4 },
-                        "end": { "line": 22, "column": 5 }
+                        "start": { "line": 24, "column": 4 },
+                        "end": { "line": 30, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "showselected",
+                    "loc": {
+                        "start": { "line": 32, "column": 4 },
+                        "end": { "line": 34, "column": 5 }
                     }
                 }
             ],
             "exports": [{ "type": "ExportDefaultDeclaration" }]
         },
-        "updatedAt": "2020-09-07T11:02:24.644Z"
+        "updatedAt": "2020-11-13T14:33:47.934Z"
     },
     {
         "_allAttributes": null,
@@ -687,16 +703,16 @@
                 }
             ],
             "declarationLoc": {
-                "start": { "line": 20, "column": 0 },
-                "end": { "line": 101, "column": 1 }
+                "start": { "line": 17, "column": 0 },
+                "end": { "line": 100, "column": 1 }
             },
             "classMembers": [
                 {
                     "type": "property",
                     "name": "rows",
                     "loc": {
-                        "start": { "line": 21, "column": 4 },
-                        "end": { "line": 21, "column": 21 }
+                        "start": { "line": 18, "column": 4 },
+                        "end": { "line": 18, "column": 21 }
                     },
                     "decorator": "track"
                 },
@@ -704,16 +720,16 @@
                     "type": "property",
                     "name": "selectIndex",
                     "loc": {
-                        "start": { "line": 22, "column": 4 },
-                        "end": { "line": 22, "column": 20 }
+                        "start": { "line": 19, "column": 4 },
+                        "end": { "line": 19, "column": 20 }
                     }
                 },
                 {
                     "type": "property",
                     "name": "selectmax",
                     "loc": {
-                        "start": { "line": 23, "column": 4 },
-                        "end": { "line": 23, "column": 23 }
+                        "start": { "line": 20, "column": 4 },
+                        "end": { "line": 20, "column": 23 }
                     },
                     "decorator": "api",
                     "value": { "type": "number", "value": 1 }
@@ -722,46 +738,46 @@
                     "type": "method",
                     "name": "connectedCallback",
                     "loc": {
-                        "start": { "line": 27, "column": 4 },
-                        "end": { "line": 60, "column": 5 }
+                        "start": { "line": 24, "column": 4 },
+                        "end": { "line": 57, "column": 5 }
                     }
                 },
                 {
                     "type": "method",
                     "name": "communicateOrgId",
                     "loc": {
-                        "start": { "line": 62, "column": 4 },
-                        "end": { "line": 65, "column": 5 }
+                        "start": { "line": 59, "column": 4 },
+                        "end": { "line": 62, "column": 5 }
                     }
                 },
                 {
                     "type": "method",
                     "name": "handleOrgSelect",
                     "loc": {
-                        "start": { "line": 67, "column": 4 },
-                        "end": { "line": 76, "column": 5 }
+                        "start": { "line": 64, "column": 4 },
+                        "end": { "line": 73, "column": 5 }
                     }
                 },
                 {
                     "type": "method",
                     "name": "newHandleOrgSelect",
                     "loc": {
-                        "start": { "line": 78, "column": 4 },
-                        "end": { "line": 90, "column": 5 }
+                        "start": { "line": 75, "column": 4 },
+                        "end": { "line": 89, "column": 5 }
                     }
                 },
                 {
                     "type": "method",
                     "name": "setOrg",
                     "loc": {
-                        "start": { "line": 92, "column": 4 },
-                        "end": { "line": 100, "column": 5 }
+                        "start": { "line": 91, "column": 4 },
+                        "end": { "line": 99, "column": 5 }
                     }
                 }
             ],
             "exports": [{ "type": "ExportDefaultDeclaration" }]
         },
-        "updatedAt": "2020-10-04T10:37:08.122Z"
+        "updatedAt": "2020-11-01T16:29:37.043Z"
     },
     {
         "_allAttributes": null,
@@ -787,7 +803,7 @@
             ],
             "declarationLoc": {
                 "start": { "line": 4, "column": 0 },
-                "end": { "line": 51, "column": 1 }
+                "end": { "line": 55, "column": 1 }
             },
             "classMembers": [
                 {
@@ -848,10 +864,153 @@
                         "start": { "line": 25, "column": 4 },
                         "end": { "line": 39, "column": 5 }
                     }
+                },
+                {
+                    "type": "method",
+                    "name": "handleClick",
+                    "loc": {
+                        "start": { "line": 52, "column": 4 },
+                        "end": { "line": 54, "column": 5 }
+                    }
                 }
             ],
             "exports": [{ "type": "ExportDefaultDeclaration" }]
         },
-        "updatedAt": "2020-09-07T11:02:25.362Z"
+        "updatedAt": "2020-10-16T17:04:59.985Z"
+    },
+    {
+        "_allAttributes": null,
+        "_properties": null,
+        "_methods": null,
+        "file": "e:/Omkar/code/plugin SFDC LWC/SFDC-Extension-LWC/src/modules/basecomp/dropDownFilter/dropDownFilter.js",
+        "metadata": {
+            "decorators": [
+                {
+                    "type": "api",
+                    "targets": [
+                        {
+                            "type": "property",
+                            "name": "options",
+                            "value": { "type": "array", "value": [] }
+                        }
+                    ]
+                },
+                {
+                    "type": "track",
+                    "targets": [
+                        { "name": "tempOptions", "type": "property" },
+                        { "name": "filterOptions", "type": "property" }
+                    ]
+                }
+            ],
+            "declarationLoc": {
+                "start": { "line": 3, "column": 0 },
+                "end": { "line": 88, "column": 1 }
+            },
+            "classMembers": [
+                {
+                    "type": "property",
+                    "name": "options",
+                    "loc": {
+                        "start": { "line": 4, "column": 4 },
+                        "end": { "line": 4, "column": 22 }
+                    },
+                    "decorator": "api",
+                    "value": { "type": "array", "value": [] }
+                },
+                {
+                    "type": "property",
+                    "name": "inputStream",
+                    "loc": {
+                        "start": { "line": 5, "column": 4 },
+                        "end": { "line": 5, "column": 21 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "isFocused",
+                    "loc": {
+                        "start": { "line": 6, "column": 4 },
+                        "end": { "line": 6, "column": 22 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "selectedIndex",
+                    "loc": {
+                        "start": { "line": 7, "column": 4 },
+                        "end": { "line": 7, "column": 22 }
+                    }
+                },
+                {
+                    "type": "property",
+                    "name": "tempOptions",
+                    "loc": {
+                        "start": { "line": 9, "column": 4 },
+                        "end": { "line": 9, "column": 23 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "property",
+                    "name": "filterOptions",
+                    "loc": {
+                        "start": { "line": 10, "column": 4 },
+                        "end": { "line": 10, "column": 25 }
+                    },
+                    "decorator": "track"
+                },
+                {
+                    "type": "method",
+                    "name": "connectedCallback",
+                    "loc": {
+                        "start": { "line": 11, "column": 4 },
+                        "end": { "line": 28, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "focusOff",
+                    "loc": {
+                        "start": { "line": 30, "column": 4 },
+                        "end": { "line": 36, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "focusOn",
+                    "loc": {
+                        "start": { "line": 38, "column": 4 },
+                        "end": { "line": 40, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "handleKeyUp",
+                    "loc": {
+                        "start": { "line": 42, "column": 4 },
+                        "end": { "line": 80, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "handleSelect",
+                    "loc": {
+                        "start": { "line": 82, "column": 4 },
+                        "end": { "line": 84, "column": 5 }
+                    }
+                },
+                {
+                    "type": "method",
+                    "name": "mouseOver",
+                    "loc": {
+                        "start": { "line": 85, "column": 4 },
+                        "end": { "line": 87, "column": 5 }
+                    }
+                }
+            ],
+            "exports": [{ "type": "ExportDefaultDeclaration" }]
+        },
+        "updatedAt": "2020-11-13T14:35:21.212Z"
     }
 ]

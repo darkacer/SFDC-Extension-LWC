@@ -1,0 +1,12 @@
+<template>
+    <lightning-tabset>
+        <template for:each={actions} for:item="action">
+            <lightning-tab label={action.name} key={action.id}>
+                <my-current-action
+                    key={action.id}
+                    page-type={action.api}
+                ></my-current-action>
+            </lightning-tab>
+        </template>
+    </lightning-tabset>
+</template>

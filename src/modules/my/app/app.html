@@ -1,4 +1,9 @@
 <template>
-    <my-org-list onorgidset={handleOrgChange} selectmax="1"></my-org-list>
-    <my-choose-component if:true={showBody}></my-choose-component>
+    <div style="border: 1%;">
+        <my-org-list onorgidset={handleOrgChange} selectmax="1"></my-org-list>
+        <!-- <my-choose-component if:true={showBody}></my-choose-component> -->
+        <my-choose-component-tab if:true={showBody}></my-choose-component-tab>
+        <!-- <basecomp-drop-down-filter options={deletemeLater} onfinalselect={showselected}></basecomp-drop-down-filter>
+        <my-org-list selectmax="3"></my-org-list> -->
+    </div>
 </template>

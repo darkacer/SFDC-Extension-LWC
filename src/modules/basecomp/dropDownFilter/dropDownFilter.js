@@ -1,25 +1,36 @@
 import { LightningElement, api, track } from 'lwc';
-const MAXSIZE = 5;
+// const MAXSIZE = 5;
 export default class DropDownFilter extends LightningElement {
     @api options = [];
+    @api inputLabel = 'mylabel';
+    @api maxSize = 5;
     inputStream = '';
     isFocused = false;
     selectedIndex = 0;
 
     @track tempOptions;
     @track filterOptions;
-    connectedCallback() {
+
+    @api
+    resetOptions(array) {
+        this.tempOptions = this.generateTempOpt([...array]);
+    }
+    generateTempOpt(arr) {
         let count = 0;
-        this.tempOptions = this.options.map((el) => {
+        return arr.map((el) => {
             return {
                 // selected : false,
                 value: el,
                 selectedClass: !count++ ? 'selected' : ''
             };
         });
-        count = 0;
+    }
+    connectedCallback() {
+        // MAXSIZE = this.maxSize
+        let count = 0;
+        this.tempOptions = this.generateTempOpt(this.options);
         this.filterOptions = this.tempOptions.filter(() => {
-            if (count < MAXSIZE) {
+            if (count < this.maxSize) {
                 count++;
                 return true;
             }
@@ -29,6 +40,12 @@ export default class DropDownFilter extends LightningElement {
 
     focusOff() {
         this.isFocused = false;
+        // Dispatches the event.
+        this.dispatchEvent(
+            new CustomEvent('finalselect', {
+                detail: this.inputStream
+            })
+        );
     }
 
     focusOn() {
@@ -37,6 +54,7 @@ export default class DropDownFilter extends LightningElement {
 
     handleKeyUp(event) {
         this.focusOn();
+        console.log('key pressed is = ', event.keyCode);
         //Enter key
         if (event.keyCode === 13) {
             this.inputStream = this.filterOptions[this.selectedIndex].value;
@@ -46,17 +64,24 @@ export default class DropDownFilter extends LightningElement {
         //Escape key
         if (event.keyCode === 27) this.focusOff();
 
+        if (event.keyCode === 40 || event.keyCode === 38)
+            event.preventDefault();
         if (!(event.keyCode === 40 || event.keyCode === 38))
             this.selectedIndex = 0;
 
         this.inputStream = event.target.value;
+        console.log('input stream is ', this.inputStream);
         if (event.keyCode === 40)
             if (this.selectedIndex < this.filterOptions.length - 1)
                 this.selectedIndex++;
         if (event.keyCode === 38) if (this.selectedIndex) this.selectedIndex--;
         let count = 0;
+        this.filterOptions = [];
         this.filterOptions = this.tempOptions.filter((el) => {
-            if (count < MAXSIZE && el.value.includes(this.inputStream)) {
+            if (
+                count < this.maxSize &&
+                el.value.toLowerCase().includes(this.inputStream.toLowerCase())
+            ) {
                 count++;
                 return true;
             }

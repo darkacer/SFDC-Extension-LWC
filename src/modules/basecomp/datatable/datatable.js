@@ -21,6 +21,7 @@ export default class Datatable extends LightningElement {
     }
 
     processData2() {
+        // add zero rows check here
         if (this.newRecordList.length) {
             this.newRecordList = this.newRecordList.map((el) =>
                 flattenObject(el)
@@ -41,6 +42,7 @@ export default class Datatable extends LightningElement {
             mySet = new Set([...mySet, ...this.getNonNullKeys(obj)]);
         });
         this.columns2 = Array.from(mySet);
+        console.log('columns2 => ', JSON.stringify(this.columns2));
     }
 
     getNonNullKeys(obj) {
@@ -63,5 +65,7 @@ export default class Datatable extends LightningElement {
             });
             this.finalData.push(tempArr);
         });
+
+        console.log('finaldata ', JSON.stringify(this.finalData));
     }
 }
