@@ -8,7 +8,6 @@ logs
 /lib
 
 # Standard dist folder
-/dist
 /src/SLDS
 
 # Tooling files
