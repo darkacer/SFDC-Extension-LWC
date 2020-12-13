@@ -1,0 +1,9 @@
+<template>
+    <my-dual-org-select ontwoselect={bothSelected}></my-dual-org-select>
+    <template if:true={showQueryBuilder}>
+        <my-query-box
+            onquerybuilt={queryReady}
+            show-key={truthy}
+        ></my-query-box>
+    </template>
+</template>

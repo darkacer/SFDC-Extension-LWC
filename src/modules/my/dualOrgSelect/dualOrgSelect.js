@@ -53,14 +53,20 @@ export default class DualOrgSelect extends LightningElement {
     }
 
     get selected() {
-        return this._selected.length ? this._selected : 'none';
+        return this._selected.length ? this._selected : [];
     }
 
-    get areTwoSelected() {
-        return this._selected.length === 2;
-    }
+    // get areTwoSelected() {
+    //     return this._selected.length === 2;
+    // }
 
     handleChange(e) {
         this._selected = e.detail.value;
+        //if(this.areTwoSelected)
+        this.dispatchEvent(
+            new CustomEvent('twoselect', { detail: this.selected })
+        );
+        // else
+        //     this.dispatchEvent(new CustomEvent('twoselect', { detail: this.selected }));
     }
 }

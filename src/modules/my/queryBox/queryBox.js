@@ -13,6 +13,10 @@ export default class QueryBox extends LightningElement {
     @track sobjectListFormat;
     @track sObjectFieldList = [];
 
+    get showBelowOperative() {
+        return false;
+    }
+
     get isMetaDataVisible() {
         return this.sobjectListFormat && this.sobjectListFormat.length;
     }
@@ -31,6 +35,20 @@ export default class QueryBox extends LightningElement {
     }
 
     fireQuery() {
+        // in compare mode just create your query and leave
+        console.log('showkey is ', this.showKey);
+        if (this.showKey) {
+            this.dispatchEvent(
+                new CustomEvent('querybuilt', {
+                    detail: {
+                        query: this.query,
+                        key: this.key,
+                        isTooling: this.toolingQuery
+                    }
+                })
+            );
+            return;
+        }
         makeQuery(this.query).then((response) => {
             console.log('query response is ', response);
 
@@ -38,10 +56,11 @@ export default class QueryBox extends LightningElement {
                 'basecomp-datatable-wrapper'
             )[0];
 
-            if (datatble) datatble.clearTable();
             /**
-             * remember to clear out child datatable components results before dumping new ones
+             * clear out child datatable components results before dumping new ones
              */
+
+            if (datatble) datatble.clearTable();
 
             if (response.done && response.totalSize) {
                 this.records = [...response.records];

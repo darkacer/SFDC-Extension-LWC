@@ -55,9 +55,9 @@ export default class CurrentAction extends LightningElement {
     }
 
     // used in query maker reponse
-    handleResponse(event) {
-        this.records = [];
-        console.log('inside handle response ' + event.detail.records);
-        this.records = [...event.detail.records];
+    handleResponse() {
+        // this.records = [];
+        // console.log('inside handle response ' + event.detail.records);
+        // this.records = [...event.detail.records];
     }
 }

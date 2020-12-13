@@ -86,6 +86,7 @@ export default class DatatableWrapper extends LightningElement {
     }
 
     onHandleSort(event) {
+        console.log(event.detail);
         const { fieldName: sortedBy, sortDirection } = event.detail;
         const cloneData = [...this.tempdata];
 

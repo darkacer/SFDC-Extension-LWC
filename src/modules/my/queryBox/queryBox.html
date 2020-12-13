@@ -12,14 +12,7 @@
                         label="SOQL Query"
                     ></lightning-textarea>
                 </span>
-                <div class="slds-form-element__control">
-                    <!-- <input
-                        class=""
-                        id="input-id-01"
-                        type="checkbox"
-                        data-name="tooling"
-                        value={toolingQuery}
-                        onchange={handleChange}/> -->
+                <!-- <div class="slds-form-element__control">
                     <lightning-input
                         type="checkbox"
                         data-name="tooling"
@@ -27,14 +20,16 @@
                         value={toolingQuery}
                         label="Tooling API"
                     ></lightning-input>
+                </div> -->
+                <div class="slds-form-element__control">
+                    <lightning-button
+                        label="Query!"
+                        disabled={isQueryButtonDisabled}
+                        variant="brand"
+                        onclick={fireQuery}
+                    ></lightning-button>
                 </div>
             </div>
-            <lightning-button
-                label="Query!"
-                disabled={isQueryButtonDisabled}
-                variant="brand"
-                onclick={fireQuery}
-            ></lightning-button>
         </div>
         <div class="slds-col slds-size_1-of-3">
             <lightning-button
@@ -57,23 +52,14 @@
                 if:true={sObjectFieldList.length}
             ></basecomp-drop-down-filter>
             <template if:true={showKey}>
-                <label class="slds-form-element__label" for="input-id-02"
-                    >Key:</label
-                >
                 <div class="slds-form-element__control">
-                    <input
-                        id="input-id-02"
-                        type="text"
-                        value={key}
-                        placeholder="Comma Separated Column names"
-                        data-name="key"
-                        onchange={handleChange}
-                        class="slds-input"
-                    />
                     <lightning-input
                         type="text"
-                        label="Add salami"
-                        value="this is dummy"
+                        label="Key:"
+                        value={key}
+                        data-name="key"
+                        onchange={handleChange}
+                        placeholder="Comma Separated Column names"
                     ></lightning-input>
                 </div>
             </template>
