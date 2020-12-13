@@ -28,10 +28,8 @@
             </tbody>
         </table>
 
-        <lightning-datatable
-            columns={columns2}
-            key-field="id"
-            data={finalData}
-        ></lightning-datatable>
+        <basecomp-datatable-wrapper
+            full-data={newRecordList}
+        ></basecomp-datatable-wrapper>
     </template>
 </template>

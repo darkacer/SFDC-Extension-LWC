@@ -1,10 +1,17 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable vars-on-top */
-import { LightningElement, track } from 'lwc';
+import { LightningElement } from 'lwc';
 import { getSobjectList } from 'my/Utils';
 import { getValue } from 'my/stateManager';
+import PubSub from 'pubsub-js';
+
 export default class App extends LightningElement {
-    @track showBody = false;
+    showToast = false;
+    toastMessage = '';
+    toastDetails = '';
+    toastMessageType = 'error';
+
+    showBody = false;
     deletemeLater = [
         'jazz1',
         'rock2',
@@ -14,6 +21,7 @@ export default class App extends LightningElement {
         'joker6',
         'rust7'
     ];
+
     handleOrgChange() {
         if (getValue('selectIndex') !== -1) {
             getSobjectList();
@@ -29,7 +37,21 @@ export default class App extends LightningElement {
     //     });
     // }
 
+    connectedCallback() {
+        PubSub.subscribe('customException', (msg, data) => {
+            console.log(msg, data.message, data.type, data.details, data);
+            this.showToast = true;
+            this.toastMessage = data.message;
+            this.toastDetails = data.details;
+            this.toastMessageType = data.type;
+        });
+    }
+
     showselected(event) {
         console.log('u chose ', event.detail);
+    }
+
+    closeToast() {
+        this.showToast = false;
     }
 }

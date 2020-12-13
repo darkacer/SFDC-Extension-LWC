@@ -1,5 +1,6 @@
 import { LightningElement, track } from 'lwc';
 import { getOrgNames } from 'my/Utils';
+import PubSub from 'pubsub-js';
 
 export default class DualOrgSelect extends LightningElement {
     _selected = [];
@@ -20,7 +21,26 @@ export default class DualOrgSelect extends LightningElement {
                 }
             });
             console.log('orgList ', JSON.stringify(this.orgList));
+
+            if (this.orgList.length >= 2) {
+                PubSub.publish('customException', {
+                    message: 'You are signed in to 2 or more orgs',
+                    type: 'success',
+                    details: 'Select your orgs from the multi-select picklist'
+                });
+            }
         });
+    }
+
+    renderedCallback() {
+        console.log('no of orgs ', this.orgList.length);
+        if (this.orgList.length < 2) {
+            PubSub.publish('customException', {
+                message: 'Not signed in to enough orgs',
+                type: 'error',
+                details: 'You need atleast two orgs to use this function'
+            });
+        }
     }
 
     get options() {

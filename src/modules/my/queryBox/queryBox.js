@@ -1,7 +1,7 @@
 import { LightningElement, api, track } from 'lwc';
 import { makeQuery, getSobjectList, getSobjectFieldList } from 'my/Utils';
 import { getValue } from 'my/stateManager';
-
+import PubSub from 'pubsub-js';
 export default class QueryBox extends LightningElement {
     query = '';
     key = '';
@@ -33,13 +33,32 @@ export default class QueryBox extends LightningElement {
     fireQuery() {
         makeQuery(this.query).then((response) => {
             console.log('query response is ', response);
-            if (response.done) {
+
+            /**
+             * remember to clear out child datatable components results before dumping new ones
+             */
+            if (response.done && response.totalSize) {
                 this.records = [...response.records];
                 this.records = [...this.records];
+
                 let datatble = this.template.querySelectorAll(
                     'basecomp-datatable'
                 )[0];
                 if (datatble) datatble.timepass(this.records);
+            } else if (response.records && !response.totalSize) {
+                PubSub.publish('customException', {
+                    message: 'Try a different Where Clause',
+                    type: 'error',
+                    details: 'No Rows present for the given query'
+                });
+            } else {
+                PubSub.publish('customException', {
+                    message:
+                        'Something is wrong with the query ' +
+                        response[0].errorCode,
+                    type: 'error',
+                    details: response[0].message
+                });
             }
             this.isQueryButtonDisabled = false;
         });

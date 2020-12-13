@@ -2,11 +2,8 @@
     <div class="slds-grid slds-gutters">
         <div class="slds-col slds-size_2-of-3">
             <div class="slds-form-element">
-                <label class="slds-form-element__label" for="textarea-id-01"
-                    >SOQL Query</label
-                >
                 <span class="slds-form-element__control">
-                    <textarea
+                    <!-- <textarea
                         id="textarea-id-01"
                         class="slds-textarea"
                         value={query}
@@ -16,20 +13,31 @@
                         cols="50"
                         data-name="query"
                         onchange={handleChange}
-                    ></textarea>
+                    ></textarea> -->
+                    <lightning-textarea
+                        name="Query Caller"
+                        value={query}
+                        placeholder="Your Query Here"
+                        data-name="query"
+                        onchange={handleChange}
+                        label="SOQL Query"
+                    ></lightning-textarea>
                 </span>
-                <label class="slds-form-element__label" for="input-id-01"
-                    >Tooling API</label
-                >
                 <div class="slds-form-element__control">
-                    <input
+                    <!-- <input
                         class=""
                         id="input-id-01"
                         type="checkbox"
                         data-name="tooling"
                         value={toolingQuery}
+                        onchange={handleChange}/> -->
+                    <lightning-input
+                        type="checkbox"
+                        data-name="tooling"
                         onchange={handleChange}
-                    />
+                        value={toolingQuery}
+                        label="Tooling API"
+                    ></lightning-input>
                 </div>
             </div>
             <!-- <button class="slds-button slds-button_brand" onclick={fireQuery}>

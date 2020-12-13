@@ -1,5 +1,14 @@
 <template>
-    <div style="border: 1%;">
+    <div style="border: 1%">
+        <template if:true={showToast}>
+            <my-toast-message
+                detail={toastDetails}
+                message={toastMessage}
+                message-type={toastMessageType}
+                onclose={closeToast}
+            ></my-toast-message>
+        </template>
+
         <my-org-list onorgidset={handleOrgChange} selectmax="1"></my-org-list>
         <!-- <my-choose-component if:true={showBody}></my-choose-component> -->
         <my-choose-component-tab if:true={showBody}></my-choose-component-tab>

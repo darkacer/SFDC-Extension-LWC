@@ -1,4 +1,4 @@
-/*! Lightning Design System 2.13.6 */
+/*! Lightning Design System 2.13.7 */
 @charset "UTF-8";
 @font-face{
   font-family:"Salesforce Sans";
@@ -8203,8 +8203,6 @@ a.slds-button--inverse:focus{
   display:-webkit-box;
   display:-ms-flexbox;
   display:flex;
-  -ms-flex-wrap:wrap;
-      flex-wrap:wrap;
   margin-bottom:0.25rem;
   margin-left:-0.25rem;
   margin-right:-0.25rem;
@@ -8213,8 +8211,8 @@ a.slds-button--inverse:focus{
   padding-top:0;
 }
 .slds-form-element_compound .slds-form-element{
-  margin-left:0.25rem;
-  margin-right:0.25rem;
+  padding-left:0.25rem;
+  padding-right:0.25rem;
 }
 .slds-form-element_address .slds-form-element__row{
   -webkit-box-align:end;
@@ -16767,7 +16765,7 @@ a.slds-button--inverse:focus{
 .slds-tabs--default{
   display:block;
   width:100%;
-  background-color:#a7a7a7;
+  background-color:white;
 }
 .slds-tabs_default .slds-tabs__item_overflow,
 .slds-tabs_default .slds-tabs__item--overflow,
