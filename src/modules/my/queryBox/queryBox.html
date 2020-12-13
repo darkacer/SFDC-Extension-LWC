@@ -3,17 +3,6 @@
         <div class="slds-col slds-size_2-of-3">
             <div class="slds-form-element">
                 <span class="slds-form-element__control">
-                    <!-- <textarea
-                        id="textarea-id-01"
-                        class="slds-textarea"
-                        value={query}
-                        placeholder="Your Query Here"
-                        name="Query Caller"
-                        rows="4"
-                        cols="50"
-                        data-name="query"
-                        onchange={handleChange}
-                    ></textarea> -->
                     <lightning-textarea
                         name="Query Caller"
                         value={query}
@@ -40,9 +29,6 @@
                     ></lightning-input>
                 </div>
             </div>
-            <!-- <button class="slds-button slds-button_brand" onclick={fireQuery}>
-                Query!
-            </button> -->
             <lightning-button
                 label="Query!"
                 disabled={isQueryButtonDisabled}
@@ -94,7 +80,9 @@
         </div>
     </div>
     <template if:true={records.length}>
-        ji {records.length}
-        <basecomp-datatable new-record-list={records}></basecomp-datatable>
+        <!-- <basecomp-datatable new-record-list={records}></basecomp-datatable> -->
+        <basecomp-datatable-wrapper
+            full-data={records}
+        ></basecomp-datatable-wrapper>
     </template>
 </template>

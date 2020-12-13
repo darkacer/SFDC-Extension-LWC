@@ -34,17 +34,21 @@ export default class QueryBox extends LightningElement {
         makeQuery(this.query).then((response) => {
             console.log('query response is ', response);
 
+            let datatble = this.template.querySelectorAll(
+                'basecomp-datatable-wrapper'
+            )[0];
+
+            if (datatble) datatble.clearTable();
             /**
              * remember to clear out child datatable components results before dumping new ones
              */
+
             if (response.done && response.totalSize) {
                 this.records = [...response.records];
                 this.records = [...this.records];
+                console.log('this recprds', JSON.stringify(this.records));
 
-                let datatble = this.template.querySelectorAll(
-                    'basecomp-datatable'
-                )[0];
-                if (datatble) datatble.timepass(this.records);
+                if (datatble) datatble.updateData(this.records);
             } else if (response.records && !response.totalSize) {
                 PubSub.publish('customException', {
                     message: 'Try a different Where Clause',
@@ -87,8 +91,8 @@ export default class QueryBox extends LightningElement {
 
     onobjectselect(event) {
         console.log('u chose ', event.detail);
-        if (event.detail) {
-            getSobjectFieldList(event.detail.split(' - ')[1]).then(
+        if (event.detail.input) {
+            getSobjectFieldList(event.detail.input.split(' - ')[1]).then(
                 (response) => {
                     // console.log(response)
                     let arr = response.fields;
@@ -102,15 +106,22 @@ export default class QueryBox extends LightningElement {
         // console.log('tempArr => ', tempArr)
         // this.sObjectFieldList = [...tempArr]
         // console.log('this sObjectFieldList', this.sObjectFieldList)
+        if (event.detail.append) this.appendToQuery(event.detail.input);
     }
 
     onFieldSelect(event) {
         console.log(event.detail);
+
+        if (event.detail.append) this.appendToQuery(event.detail.input);
     }
 
     getsobjectListFormat() {
         let tempVal = getValue('sobjectList');
         tempVal = tempVal.map((el) => el.label + ' - ' + el.name);
         this.sobjectListFormat = [...tempVal];
+    }
+
+    appendToQuery(string) {
+        this.query += string.split(' - ')[1] + ' ';
     }
 }

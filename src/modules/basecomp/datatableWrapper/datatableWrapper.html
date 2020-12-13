@@ -1,7 +1,15 @@
 <template>
-    <lightning-datatable
-        columns={columns}
-        key-field="id"
-        data={tempData}
-    ></lightning-datatable>
+    Count = {tempdata.length}
+    <template if:true={tempdata.length}>
+        <lightning-datatable
+            columns={tempColumns}
+            key-field="id"
+            data={tempdata}
+            hide-checkbox-column
+            default-sort-direction={defaultSortDirection}
+            sorted-direction={sortDirection}
+            sorted-by={sortedBy}
+            onsort={onHandleSort}
+        ></lightning-datatable>
+    </template>
 </template>

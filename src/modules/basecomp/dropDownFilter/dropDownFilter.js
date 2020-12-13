@@ -8,6 +8,8 @@ export default class DropDownFilter extends LightningElement {
     isFocused = false;
     selectedIndex = 0;
 
+    falsy = false;
+
     @track tempOptions;
     @track filterOptions;
 
@@ -38,12 +40,20 @@ export default class DropDownFilter extends LightningElement {
         });
     }
 
-    focusOff() {
+    focusOffUI() {
+        // this.focusOff(false)
+        this.isFocused = false;
+    }
+
+    focusOff(append) {
         this.isFocused = false;
         // Dispatches the event.
         this.dispatchEvent(
             new CustomEvent('finalselect', {
-                detail: this.inputStream
+                detail: {
+                    input: this.inputStream,
+                    append: append
+                }
             })
         );
     }
@@ -58,11 +68,11 @@ export default class DropDownFilter extends LightningElement {
         //Enter key
         if (event.keyCode === 13) {
             this.inputStream = this.filterOptions[this.selectedIndex].value;
-            this.focusOff();
+            this.focusOff(true);
             return;
         }
         //Escape key
-        if (event.keyCode === 27) this.focusOff();
+        if (event.keyCode === 27) this.focusOff(false);
 
         if (event.keyCode === 40 || event.keyCode === 38)
             event.preventDefault();

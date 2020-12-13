@@ -4,8 +4,8 @@
         value={inputStream}
         onkeydown={handleKeyUp}
         onfocus={focusOn}
-        onblur={focusOff}
-        aria-autocomplete="false"
+        onblur={focusOffUI}
+        autocomplete={falsy}
     ></lightning-input>
     <div class="output" if:true={isFocused}>
         <template for:each={filterOptions} for:item="itemName">
