@@ -1,5 +1,9 @@
 <template>
     Count = {tempdata.length}
+    <lightning-button
+        onclick={copyText}
+        label="Copy CSV data"
+    ></lightning-button>
     <template if:true={tempdata.length}>
         <lightning-datatable
             columns={tempColumns}

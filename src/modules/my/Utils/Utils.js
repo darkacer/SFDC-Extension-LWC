@@ -64,11 +64,15 @@ const getOrgToken = (id) => {
 };
 const makeQueryAll = (orgURL, token, query) => {
     query = query.replace(/\s\s+/g, ' ');
+    query = query.replace(/%/g, '%25');
+    query = query.replace(/ /g, '+');
     return fireRest2(orgURL, 'query/?q=' + query, token);
 };
 
 const makeQuery = (query) => {
     query = query.replace(/\s\s+/g, ' ');
+    query = query.replace(/%/g, '%25');
+    query = query.replace(/ /g, '+');
     return fireRest2(getOrgUrl(), 'query/?q=' + query, getOrgToken());
 };
 
@@ -90,6 +94,32 @@ const getSobjectFieldList = (sobjectName) => {
     );
 };
 
+const convertToCSV = (objArray) => {
+    let array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
+    if (!Array.isArray(array)) array = [array];
+
+    let str = '';
+    for (const key in array[0]) {
+        if (str !== '') str += ',';
+        str += key;
+    }
+    str += '<br>';
+    for (let i = 0; i < array.length; i++) {
+        let line = '';
+        for (let index in array[i]) {
+            if (line !== '') line += ',';
+
+            const item = array[i][index] ? array[i][index] : '';
+            line +=
+                typeof item === 'object' && item !== null
+                    ? ConvertToCSV(item)
+                    : item;
+        }
+        str += line + '\r\n';
+    }
+    return str.replace(/(\r\n|\n|\r)/gm, '<br>'); //removing line breaks: https://stackoverflow.com/a/10805198/4508758
+};
+
 export {
     getOrgNames,
     fireRest2,
@@ -97,5 +127,6 @@ export {
     makeQuery,
     makeQueryAll,
     getSobjectList,
-    getSobjectFieldList
+    getSobjectFieldList,
+    convertToCSV
 };

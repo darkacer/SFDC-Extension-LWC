@@ -1,6 +1,6 @@
 /* eslint-disable @lwc/lwc/no-api-reassignments */
 import { LightningElement, api, track } from 'lwc';
-import { flattenObject } from '../../my/Utils/Utils';
+import { flattenObject, convertToCSV } from '../../my/Utils/Utils';
 
 let colSet = new Set();
 // eslint-disable-next-line @lwc/lwc/no-leading-uppercase-api-name
@@ -94,5 +94,18 @@ export default class DatatableWrapper extends LightningElement {
         this.tempdata = cloneData;
         this.sortDirection = sortDirection;
         this.sortedBy = sortedBy;
+    }
+
+    copyText() {
+        // let copyText = JSON.stringify(this.tempdata);
+
+        var myWindow = window.open('', '', 'width=400,height=500');
+        let string = convertToCSV(this.tempdata);
+        console.log(string);
+        myWindow.document.write(string);
+        // copyText.select();
+        // // this.copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        // document.execCommand("copy");
     }
 }

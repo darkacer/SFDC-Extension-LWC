@@ -58,6 +58,7 @@ export default class QueryBox extends LightningElement {
 
             /**
              * clear out child datatable components results before dumping new ones
+             * DONE!
              */
 
             if (datatble) datatble.clearTable();
@@ -131,7 +132,7 @@ export default class QueryBox extends LightningElement {
     onFieldSelect(event) {
         console.log(event.detail);
 
-        if (event.detail.append) this.appendToQuery(event.detail.input);
+        if (event.detail.append) this.appendToQuery(event.detail.input + ', ');
     }
 
     getsobjectListFormat() {
