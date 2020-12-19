@@ -1,30 +1,30 @@
 <template>
-    <template if:true={oldQueries.length}>
-        <template for:each={oldQueries} for:item="query">
+    <template if:true={oldqueries.length}>
+        <template for:each={oldqueries} for:item="currentq">
             <lightning-textarea
-                key={query.id}
-                data-id={query.id}
+                key={currentq.id}
+                data-id={currentq.id}
                 name="input2"
-                label=""
-                value={query.query}
+                label={currentq.displayName}
+                value={currentq.query}
                 read-only
             ></lightning-textarea>
             <lightning-button-icon
-                key={query.id}
-                data-id={query.id}
+                key={currentq.id}
+                data-id={currentq.id}
                 icon-name="utility:copy"
                 alternative-text="Copy"
                 title="Settings"
             ></lightning-button-icon>
             <lightning-button-icon
-                key={query.id}
-                data-id={query.id}
+                key={currentq.id}
+                data-id={currentq.id}
                 icon-name="utility:favorite"
                 alternative-text="Favorite"
                 title="Favorite"
-                variant={query.variant}
+                variant={currentq.variant}
             ></lightning-button-icon>
         </template>
     </template>
-    <template if:false={oldQueries.length}> No old quries </template>
+    <template if:false={oldqueries.length}> No old quries </template>
 </template>

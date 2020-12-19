@@ -22,11 +22,11 @@ export default class ChooseComponentTab extends LightningElement {
             id: 3,
             name: 'Compare Metadata Detail',
             api: 'compareMetaData'
-        },
-        {
-            id: 4,
-            name: 'Old Queries',
-            api: 'oldQuries'
         }
+        // {
+        //     id: 4,
+        //     name: 'Old Queries',
+        //     api: 'oldQuries'
+        // }
     ];
 }

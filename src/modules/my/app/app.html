@@ -8,17 +8,34 @@
                 onclose={closeToast}
             ></my-toast-message>
         </template>
+        <div class="slds-box slds-theme--shade">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-6">
+                    <my-org-list-combo-box
+                        onorgidset={handleOrgChange}
+                    ></my-org-list-combo-box>
+                </div>
+                <div
+                    class="slds-col slds-size_2-of-6 slds-scrollable scrollable"
+                >
+                    <b>History Queries</b>
+                    <my-old-quries mode="history"></my-old-quries>
+                </div>
+                <div
+                    class="slds-col slds-size_2-of-6 slds-scrollable scrollable"
+                >
+                    <b>Favorite Queries</b>
+                    <my-old-quries mode="favorite"></my-old-quries>
+                </div>
+            </div>
+        </div>
 
-        <!-- <my-org-list onorgidset={handleOrgChange} selectmax="1"></my-org-list>
-        <br /> -->
-
-        <my-org-list-combo-box
-            onorgidset={handleOrgChange}
-        ></my-org-list-combo-box>
         <br />
-        <!-- <my-choose-component if:true={showBody}></my-choose-component> -->
-        <my-choose-component-tab if:true={showBody}></my-choose-component-tab>
-        <!-- <basecomp-drop-down-filter options={deletemeLater} onfinalselect={showselected}></basecomp-drop-down-filter>
-        <my-org-list selectmax="3"></my-org-list> -->
+
+        <div class="slds-box slds-theme--shade">
+            <my-choose-component-tab
+                if:true={showBody}
+            ></my-choose-component-tab>
+        </div>
     </div>
 </template>

@@ -65,10 +65,18 @@ export default class QueryBox extends LightningElement {
 
             if (response.done && response.totalSize) {
                 this.records = [...response.records];
-                this.records = [...this.records];
+                // this.records = [...this.records];
                 console.log('this recprds', JSON.stringify(this.records));
 
                 if (datatble) datatble.updateData(this.records);
+
+                PubSub.publish('querySave', {
+                    query: this.query,
+                    recordLength: this.records.length,
+                    time: new Date(),
+                    orgName: getValue('idToOrgObj')[getValue('selectIndex')]
+                        .domain
+                });
             } else if (response.records && !response.totalSize) {
                 PubSub.publish('customException', {
                     message: 'Try a different Where Clause',

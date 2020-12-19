@@ -5,7 +5,7 @@ import queryMaker from './queryMaker.html';
 import objectDetail from './objectDetail.html';
 import recordDetail from './recordDetail.html';
 import compareMetaData from './compareMetaData.html';
-import oldQuries from './oldQuries.html';
+// import oldQuries from './oldQuries.html';
 
 import { getValue } from 'my/stateManager';
 
@@ -34,8 +34,8 @@ export default class CurrentAction extends LightningElement {
                 return recordDetail;
             case 'compareMetaData':
                 return compareMetaData;
-            case 'oldQuries':
-                return oldQuries;
+            // case 'oldQuries':
+            //     return oldQuries;
             default:
                 return '';
         }
