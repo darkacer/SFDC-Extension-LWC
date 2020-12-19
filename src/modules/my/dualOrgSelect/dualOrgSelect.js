@@ -11,7 +11,10 @@ export default class DualOrgSelect extends LightningElement {
         getOrgNames((cookies) => {
             cookies.forEach((elem) => {
                 console.log('elem => ', JSON.stringify(elem));
-                if (new RegExp('.*salesforce.com').test(elem.domain)) {
+                if (
+                    new RegExp('.*salesforce.com').test(elem.domain) &&
+                    elem.hostOnly
+                ) {
                     this.orgList.push({
                         index: index,
                         value: elem.value,

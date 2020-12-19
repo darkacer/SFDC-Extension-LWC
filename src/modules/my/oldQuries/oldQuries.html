@@ -1,0 +1,30 @@
+<template>
+    <template if:true={oldQueries.length}>
+        <template for:each={oldQueries} for:item="query">
+            <lightning-textarea
+                key={query.id}
+                data-id={query.id}
+                name="input2"
+                label=""
+                value={query.query}
+                read-only
+            ></lightning-textarea>
+            <lightning-button-icon
+                key={query.id}
+                data-id={query.id}
+                icon-name="utility:copy"
+                alternative-text="Copy"
+                title="Settings"
+            ></lightning-button-icon>
+            <lightning-button-icon
+                key={query.id}
+                data-id={query.id}
+                icon-name="utility:favorite"
+                alternative-text="Favorite"
+                title="Favorite"
+                variant={query.variant}
+            ></lightning-button-icon>
+        </template>
+    </template>
+    <template if:false={oldQueries.length}> No old quries </template>
+</template>

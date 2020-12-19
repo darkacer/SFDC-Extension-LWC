@@ -23,6 +23,7 @@ export default class App extends LightningElement {
     ];
 
     handleOrgChange() {
+        console.log('you selected ', getValue('selectIndex'));
         if (getValue('selectIndex') !== -1) {
             getSobjectList();
             this.showBody = true;

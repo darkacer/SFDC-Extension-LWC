@@ -1,9 +1,22 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-undef */
 import { getValue, setValue } from 'my/stateManager';
+import PubSub from 'pubsub-js';
 const myBrowser = typeof chrome === 'undefined' ? browser : chrome;
 const serviceData = '/services/data';
 const version = '/v49.0/';
+
+// removes attributes and gathers possoble columnnames
+const removeAttributes = (element) => {
+    //let colSet = new Set()
+    let tempObj = {};
+    for (const iterator in element) {
+        if (!iterator.includes('attributes')) {
+            tempObj[iterator] = element[iterator];
+        }
+    }
+    return tempObj;
+};
 
 const getOrgNames = (callback) => {
     // uncomment me later
@@ -30,8 +43,16 @@ const fireRest2 = async (orgURL, purpose, token) => {
     };
     try {
         response = await fetch(url, settings);
+        if (!response.ok)
+            // or check for response.status
+            throw new Error(response.statusText);
     } catch (err) {
         console.log('erroris ', err);
+        PubSub.publish('customException', {
+            message: 'Something went wrong while communicating with your org',
+            type: 'error',
+            details: err
+        });
     }
     return response ? response.json() : null;
     //console.log('respornc ', response)
@@ -78,7 +99,10 @@ const makeQuery = (query) => {
 
 const getSobjectList = () => {
     let index = getValue('selectIndex');
+    console.log('before getting sobject index is ', index);
+    console.log('idToOrgObj', getValue('idToOrgObj'));
     let org = getValue('idToOrgObj')[index];
+    console.log('before getting sobject org is ', org);
     fireRest2(org.domain, 'sobjects/', org.value).then((response) => {
         setValue('sobjectList', response.sobjects);
     });
@@ -128,5 +152,6 @@ export {
     makeQueryAll,
     getSobjectList,
     getSobjectFieldList,
-    convertToCSV
+    convertToCSV,
+    removeAttributes
 };
