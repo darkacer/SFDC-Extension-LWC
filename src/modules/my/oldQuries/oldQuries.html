@@ -2,29 +2,39 @@
     <template if:true={oldqueries.length}>
         <template for:each={oldqueries} for:item="currentq">
             <lightning-textarea
-                key={currentq.id}
-                data-id={currentq.id}
+                key={currentq.queryKey}
                 name="input2"
                 label={currentq.displayName}
                 value={currentq.query}
                 read-only
             ></lightning-textarea>
             <lightning-button-icon
-                key={currentq.id}
-                data-id={currentq.id}
+                key={currentq.queryKey}
+                data-querykey={currentq.queryKey}
                 icon-name="utility:copy"
                 alternative-text="Copy"
-                title="Settings"
+                title="Copy"
             ></lightning-button-icon>
             <lightning-button-icon
-                key={currentq.id}
-                data-id={currentq.id}
+                key={currentq.queryKey}
+                data-querykey={currentq.queryKey}
                 icon-name="utility:favorite"
                 alternative-text="Favorite"
                 title="Favorite"
+                onclick={toggleFavorite}
                 variant={currentq.variant}
+            ></lightning-button-icon>
+            <lightning-button-icon
+                key={currentq.queryKey}
+                data-querykey={currentq.queryKey}
+                icon-name="utility:delete"
+                alternative-text="Delete"
+                title="Delete"
+                onclick={deleteQuery}
             ></lightning-button-icon>
         </template>
     </template>
-    <template if:false={oldqueries.length}> No old quries </template>
+    <template if:false={oldqueries.length}
+        ><div>Your {mode} queries should appear here</div></template
+    >
 </template>

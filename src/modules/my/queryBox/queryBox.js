@@ -73,9 +73,15 @@ export default class QueryBox extends LightningElement {
                 PubSub.publish('querySave', {
                     query: this.query,
                     recordLength: this.records.length,
-                    time: new Date(),
                     orgName: getValue('idToOrgObj')[getValue('selectIndex')]
-                        .domain
+                        .domain,
+                    queryDate: new Date(),
+                    displayName:
+                        this.records.length +
+                        ' Records ' +
+                        new Date().toLocaleString() +
+                        ' ' +
+                        getValue('idToOrgObj')[getValue('selectIndex')].domain
                 });
             } else if (response.records && !response.totalSize) {
                 PubSub.publish('customException', {
