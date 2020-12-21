@@ -14,20 +14,32 @@ export default class OldQuries extends LightningElement {
     isApplicable(obj) {
         return (
             (obj.isFavorite && this.mode === 'favorite') ||
-            (!obj.isFavorite && this.mode === 'history')
+            this.mode === 'history'
         );
     }
 
     // set only 20 history and 20 favorite queries
     setItemsInLocalStorage(tempMap) {
+        // localStorage.setItem('historyQueries', JSON.stringify([...tempMap]));
+        tempMap = new Map(JSON.parse(JSON.stringify([...tempMap])));
+
         let queryArray = [];
         for (let key of tempMap.keys()) {
             queryArray.push(tempMap.get(key));
         }
 
-        queryArray.sort((a, b) => a.queryDate > b.queryDate);
+        queryArray.sort(
+            (a, b) => Date.parse(a.queryDate) - Date.parse(b.queryDate)
+        );
 
         console.log('sorted array ', queryArray);
+
+        let resultMap = queryArray.reduce(function (map, obj) {
+            map[obj.query + obj.orgName] = obj;
+            return map;
+        }, {});
+
+        console.log(resultMap, tempMap);
 
         localStorage.setItem('historyQueries', JSON.stringify([...tempMap]));
     }
@@ -60,12 +72,12 @@ export default class OldQuries extends LightningElement {
             this.setItemsInLocalStorage(tempMap);
 
             //empty and get new
-            this.oldqueries = [];
             this.getOldQueries();
         });
     }
 
     getOldQueries() {
+        this.oldqueries = [];
         if (localStorage.getItem('historyQueries')) {
             let tempMap = new Map(
                 JSON.parse(localStorage.getItem('historyQueries'))
@@ -83,14 +95,21 @@ export default class OldQuries extends LightningElement {
                             ...el
                         };
                     })
-                    .filter((el) => this.isApplicable(el));
+                    .filter((el) => this.isApplicable(el))
+                    .sort(
+                        (a, b) =>
+                            Date.parse(b.queryDate) - Date.parse(a.queryDate)
+                    );
             }
         }
     }
 
     copyQuery(event) {
-        let index = event.target.dataset.id;
-        console.log(index);
+        let query = event.target.dataset.query;
+        console.log('copying query ', query);
+        PubSub.publish('queryCopy', {
+            query: query
+        });
     }
 
     toggleFavorite(event) {
@@ -106,10 +125,19 @@ export default class OldQuries extends LightningElement {
         }
 
         this.setItemsInLocalStorage(tempMap);
+        this.getOldQueries();
     }
 
     deleteQuery(event) {
         let queryKey = event.target.dataset.querykey;
         console.log(queryKey);
+        let tempMap = new Map(
+            JSON.parse(localStorage.getItem('historyQueries'))
+        );
+
+        tempMap.delete(queryKey);
+
+        this.setItemsInLocalStorage(tempMap);
+        this.getOldQueries();
     }
 }

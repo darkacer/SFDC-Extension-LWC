@@ -3,7 +3,7 @@ import { getOrgNames } from 'my/Utils';
 import { setValue } from 'my/stateManager';
 
 export default class OrgListComboBox extends LightningElement {
-    @track rows;
+    @track rows = [];
     value;
 
     connectedCallback() {

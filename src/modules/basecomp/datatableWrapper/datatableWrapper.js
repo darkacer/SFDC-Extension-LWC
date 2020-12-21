@@ -35,7 +35,8 @@ export default class DatatableWrapper extends LightningElement {
         return this.columns.map((el) => {
             return {
                 label: el,
-                fieldName: el
+                fieldName: el,
+                sortable: true
             };
         });
     }

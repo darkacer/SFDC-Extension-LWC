@@ -1,11 +1,14 @@
 <template>
     <b>Current Org</b>
-    <lightning-combobox
-        name=""
-        label=""
-        value={value}
-        placeholder="Select Org"
-        options={rows}
-        onchange={handleChange}
-    ></lightning-combobox>
+    <template if:false={rows.length}><br />No signed in orgs found</template>
+    <template if:true={rows.length}>
+        <lightning-combobox
+            name=""
+            label=""
+            value={value}
+            placeholder="Select Org"
+            options={rows}
+            onchange={handleChange}
+        ></lightning-combobox>
+    </template>
 </template>

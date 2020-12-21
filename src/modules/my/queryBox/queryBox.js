@@ -13,6 +13,13 @@ export default class QueryBox extends LightningElement {
     @track sobjectListFormat;
     @track sObjectFieldList = [];
 
+    connectedCallback() {
+        PubSub.subscribe('queryCopy', (msg, data) => {
+            console.log('setting query', data.query);
+            this.query = data.query;
+        });
+    }
+
     get showBelowOperative() {
         return false;
     }
