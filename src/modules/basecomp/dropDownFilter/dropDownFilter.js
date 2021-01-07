@@ -56,6 +56,12 @@ export default class DropDownFilter extends LightningElement {
                 }
             })
         );
+        console.log('event dispatched!', append);
+    }
+
+    clicked(event) {
+        this.inputStream = event.currentTarget.dataset.value;
+        this.focusOff(false);
     }
 
     focusOn() {

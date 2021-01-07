@@ -14,5 +14,8 @@ module.exports = {
 
         // go to node_modules\@salesforce-ux\design-system\assets\styles\salesforce-lightning-design-system.css
         // to updated slds themes
-    ]
+    ],
+    lwcCompilerStylesheetConfig: {
+        customProperties: { allowDefinition: true }
+    }
 };

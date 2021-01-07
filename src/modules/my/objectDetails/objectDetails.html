@@ -1,0 +1,23 @@
+<template>
+    <template if:true={sobjectNames.length}>
+        <basecomp-drop-down-filter
+            options={sobjectNames}
+            max-size="30"
+            input-label="Sobject Name"
+            onfinalselect={objectSelected}
+        ></basecomp-drop-down-filter>
+    </template>
+
+    <lightning-button
+        onclick={describeSobject}
+        label="Describe Sobject"
+        disabled={isbuttondisabled}
+        variant="Brand"
+    ></lightning-button>
+    <template if:true={records.length}>
+        <basecomp-datatable-wrapper
+            full-data={records}
+            api-columns={columns}
+        ></basecomp-datatable-wrapper>
+    </template>
+</template>

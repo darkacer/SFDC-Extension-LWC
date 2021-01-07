@@ -1,11 +1,17 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, track } from 'lwc';
 // import { getValue, setValue } from 'my/stateManager';
 import { makeQueryAll, flattenObject, removeAttributes } from 'my/Utils';
+import { compareData } from 'my/UtilCompareData';
 
 export default class CompareMetaData extends LightningElement {
     showQueryBuilder = false;
     truthy = true;
     orgToQuery = [];
+
+    showDatatable = false;
+    @track datatable0;
+    @track datatable1;
+    @track datatable2;
 
     bothSelected(event) {
         console.log('you selected  2 ! = ', JSON.stringify(event.detail));
@@ -24,7 +30,7 @@ export default class CompareMetaData extends LightningElement {
     queryReady(event) {
         console.log('query is ', event.detail);
         let query = event.detail.query;
-        //let key = event.detail.key;
+        let key = event.detail.key;
 
         console.log(
             'before making dual query ',
@@ -57,8 +63,15 @@ export default class CompareMetaData extends LightningElement {
                     .map((el) => removeAttributes(el));
                 // let records1 = response[1].records
 
-                console.log(JSON.stringify(records0));
-                console.log(JSON.stringify(records1));
+                // console.log(JSON.stringify(records0));
+                // console.log(JSON.stringify(records1));
+
+                console.log(JSON.stringify('main data =>'));
+                let tempObj = compareData(records0, records1, key);
+                this.datatable0 = tempObj.datatable0;
+                this.datatable1 = tempObj.datatable1;
+                this.datatable2 = tempObj.datatable2;
+                this.showDatatable = true;
             } else {
                 console.log('something went wrong!');
             }

@@ -72,9 +72,6 @@ export default class QueryBox extends LightningElement {
 
             if (response.done && response.totalSize) {
                 this.records = [...response.records];
-                // this.records = [...this.records];
-                console.log('this recprds', JSON.stringify(this.records));
-
                 if (datatble) datatble.updateData(this.records);
 
                 PubSub.publish('querySave', {
@@ -144,15 +141,10 @@ export default class QueryBox extends LightningElement {
                 }
             );
         }
-        // console.log('tempArr => ', tempArr)
-        // this.sObjectFieldList = [...tempArr]
-        // console.log('this sObjectFieldList', this.sObjectFieldList)
         if (event.detail.append) this.appendToQuery(event.detail.input);
     }
 
     onFieldSelect(event) {
-        console.log(event.detail);
-
         if (event.detail.append) this.appendToQuery(event.detail.input + ', ');
     }
 

@@ -2,6 +2,18 @@
     <div class="slds-grid slds-gutters">
         <div class="slds-col slds-size_2-of-3">
             <div class="slds-form-element">
+                <template if:true={showKey}>
+                    <div class="slds-form-element__control">
+                        <lightning-input
+                            type="text"
+                            label="Key:"
+                            value={key}
+                            data-name="key"
+                            onchange={handleChange}
+                            placeholder="Comma Separated Column names"
+                        ></lightning-input>
+                    </div>
+                </template>
                 <span class="slds-form-element__control">
                     <lightning-textarea
                         name="Query Caller"
@@ -52,18 +64,6 @@
                 onfinalselect={onFieldSelect}
                 if:true={sObjectFieldList.length}
             ></basecomp-drop-down-filter>
-            <template if:true={showKey}>
-                <div class="slds-form-element__control">
-                    <lightning-input
-                        type="text"
-                        label="Key:"
-                        value={key}
-                        data-name="key"
-                        onchange={handleChange}
-                        placeholder="Comma Separated Column names"
-                    ></lightning-input>
-                </div>
-            </template>
         </div>
     </div>
     <template if:true={records.length}>

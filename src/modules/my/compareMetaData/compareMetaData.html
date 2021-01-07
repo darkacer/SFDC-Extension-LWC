@@ -6,4 +6,18 @@
             show-key={truthy}
         ></my-query-box>
     </template>
+
+    <template if:true={showDatatable}>
+        <basecomp-datatable-wrapper
+            full-data={datatable0}
+        ></basecomp-datatable-wrapper>
+
+        <basecomp-datatable-wrapper
+            full-data={datatable1}
+        ></basecomp-datatable-wrapper>
+
+        <basecomp-datatable-wrapper
+            full-data={datatable2}
+        ></basecomp-datatable-wrapper>
+    </template>
 </template>

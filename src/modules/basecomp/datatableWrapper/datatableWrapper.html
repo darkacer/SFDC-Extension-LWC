@@ -1,9 +1,5 @@
 <template>
-    Count = {tempdata.length}
-    <lightning-button
-        onclick={copyText}
-        label="Copy CSV data"
-    ></lightning-button>
+    <lightning-button onclick={copyText} label={buttonName}></lightning-button>
     <template if:true={tempdata.length}>
         <lightning-datatable
             columns={tempColumns}
@@ -14,6 +10,9 @@
             sorted-direction={sortDirection}
             sorted-by={sortedBy}
             onsort={onHandleSort}
+            column-widths-mode={columnWidthsMode}
+            min-column-width={minColumnWidth}
+            max-column-width={maxColumnWidth}
         ></lightning-datatable>
     </template>
 </template>
