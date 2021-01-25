@@ -11,7 +11,7 @@ export default class OrgListComboBox extends LightningElement {
         let idToOrgObj = {};
         let index = 0;
         getOrgNames((cookies) => {
-            cookies.forEach((elem) => {
+            cookies.reverse().forEach((elem) => {
                 if (
                     new RegExp('.*salesforce.com').test(elem.domain) &&
                     elem.hostOnly

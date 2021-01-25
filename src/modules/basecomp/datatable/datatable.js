@@ -42,7 +42,6 @@ export default class Datatable extends LightningElement {
             mySet = new Set([...mySet, ...this.getNonNullKeys(obj)]);
         });
         this.columns2 = Array.from(mySet);
-        console.log('columns2 => ', JSON.stringify(this.columns2));
     }
 
     getNonNullKeys(obj) {
@@ -65,7 +64,5 @@ export default class Datatable extends LightningElement {
             });
             this.finalData.push(tempArr);
         });
-
-        console.log('finaldata ', JSON.stringify(this.finalData));
     }
 }

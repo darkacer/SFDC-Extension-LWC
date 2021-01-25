@@ -42,7 +42,6 @@ export default class ObjectDetail extends LightningElement {
     }
 
     objectSelected(event) {
-        console.log(event.detail);
         this.sobjectnameApiName = event.detail.input.split(' - ')[1];
         //this.callSObjectApi(sobjectnameApiName)
     }

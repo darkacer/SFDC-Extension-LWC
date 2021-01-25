@@ -23,7 +23,6 @@ export default class App extends LightningElement {
     ];
 
     handleOrgChange() {
-        console.log('you selected ', getValue('selectIndex'));
         if (getValue('selectIndex') !== -1) {
             getSobjectList();
             this.showBody = true;
@@ -40,7 +39,6 @@ export default class App extends LightningElement {
 
     connectedCallback() {
         PubSub.subscribe('customException', (msg, data) => {
-            console.log(msg, data.message, data.type, data.details, data);
             this.showToast = true;
             this.toastMessage = data.message;
             this.toastDetails = data.details;
@@ -48,9 +46,7 @@ export default class App extends LightningElement {
         });
     }
 
-    showselected(event) {
-        console.log('u chose ', event.detail);
-    }
+    showselected() {}
 
     closeToast() {
         this.showToast = false;

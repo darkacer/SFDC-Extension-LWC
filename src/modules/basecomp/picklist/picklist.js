@@ -20,10 +20,6 @@ export default class Picklist extends LightningElement {
                     { id: count++ }
                 )
             );
-        console.log(
-            'inside base component picklist ',
-            this.picklistOptions[3].value
-        );
     }
 
     handleChange(event) {

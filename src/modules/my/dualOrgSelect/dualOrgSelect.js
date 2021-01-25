@@ -9,8 +9,7 @@ export default class DualOrgSelect extends LightningElement {
     connectedCallback() {
         let index = 0;
         getOrgNames((cookies) => {
-            cookies.forEach((elem) => {
-                console.log('elem => ', JSON.stringify(elem));
+            cookies.reverse().forEach((elem) => {
                 if (
                     new RegExp('.*salesforce.com').test(elem.domain) &&
                     elem.hostOnly
@@ -23,8 +22,6 @@ export default class DualOrgSelect extends LightningElement {
                     index++;
                 }
             });
-            console.log('orgList ', JSON.stringify(this.orgList));
-
             if (this.orgList.length >= 2) {
                 PubSub.publish('customException', {
                     message: 'You are signed in to 2 or more orgs',
@@ -36,7 +33,6 @@ export default class DualOrgSelect extends LightningElement {
     }
 
     renderedCallback() {
-        console.log('no of orgs ', this.orgList.length);
         if (this.orgList.length < 2) {
             PubSub.publish('customException', {
                 message: 'Not signed in to enough orgs',

@@ -56,7 +56,6 @@ export default class DropDownFilter extends LightningElement {
                 }
             })
         );
-        console.log('event dispatched!', append);
     }
 
     clicked(event) {
@@ -70,7 +69,6 @@ export default class DropDownFilter extends LightningElement {
 
     handleKeyUp(event) {
         this.focusOn();
-        console.log('key pressed is = ', event.keyCode);
         //Enter key
         if (event.keyCode === 13) {
             this.inputStream = this.filterOptions[this.selectedIndex].value;
@@ -86,7 +84,6 @@ export default class DropDownFilter extends LightningElement {
             this.selectedIndex = 0;
 
         this.inputStream = event.target.value;
-        console.log('input stream is ', this.inputStream);
         if (event.keyCode === 40)
             if (this.selectedIndex < this.filterOptions.length - 1)
                 this.selectedIndex++;
@@ -114,7 +111,5 @@ export default class DropDownFilter extends LightningElement {
     handleSelect(event) {
         this.inputStream = event.currentTarget.dataset.value;
     }
-    mouseOver(event) {
-        console.log('mouse over' + event.currentTarget.dataset.value);
-    }
+    mouseOver() {}
 }

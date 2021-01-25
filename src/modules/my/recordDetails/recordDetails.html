@@ -10,4 +10,11 @@
         variant="Brand"
         onclick={getRecordDetails}
     ></lightning-button>
+
+    <template if:true={recordData.length}>
+        <basecomp-datatable-wrapper
+            full-data={recordData}
+            api-columns={columns}
+        ></basecomp-datatable-wrapper>
+    </template>
 </template>

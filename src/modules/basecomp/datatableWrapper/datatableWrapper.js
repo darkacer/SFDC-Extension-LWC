@@ -30,10 +30,7 @@ export default class DatatableWrapper extends LightningElement {
     }
 
     connectedCallback() {
-        console.log('fulldata ', JSON.stringify(this.fullData));
-        // if(this.apiColumns.length) {
         this.processData();
-        // }
     }
 
     @api
@@ -72,7 +69,6 @@ export default class DatatableWrapper extends LightningElement {
                     .map((el) => this.removeAttributes(el));
             }
             this.tempdata = [...this.fullData];
-            console.log('this.tempdata', this.tempdata);
         } else {
             this.tempdata = [];
         }
@@ -110,7 +106,6 @@ export default class DatatableWrapper extends LightningElement {
     }
 
     onHandleSort(event) {
-        console.log(event.detail);
         const { fieldName: sortedBy, sortDirection } = event.detail;
         const cloneData = [...this.tempdata];
 
@@ -123,7 +118,6 @@ export default class DatatableWrapper extends LightningElement {
     copyText() {
         var myWindow = window.open('', '', 'width=400,height=500');
         let string = convertToCSV(this.tempdata);
-        console.log(string);
         myWindow.document.write(string);
     }
 }

@@ -15,7 +15,6 @@ export default class QueryBox extends LightningElement {
 
     connectedCallback() {
         PubSub.subscribe('queryCopy', (msg, data) => {
-            console.log('setting query', data.query);
             this.query = data.query;
         });
     }
@@ -43,7 +42,6 @@ export default class QueryBox extends LightningElement {
 
     fireQuery() {
         // in compare mode just create your query and leave
-        console.log('showkey is ', this.showKey);
         if (this.showKey) {
             this.dispatchEvent(
                 new CustomEvent('querybuilt', {
@@ -57,8 +55,6 @@ export default class QueryBox extends LightningElement {
             return;
         }
         makeQuery(this.query).then((response) => {
-            console.log('query response is ', response);
-
             let datatble = this.template.querySelectorAll(
                 'basecomp-datatable-wrapper'
             )[0];
@@ -123,16 +119,12 @@ export default class QueryBox extends LightningElement {
         }
     }
 
-    handleClick() {
-        console.log('you clicked! ');
-    }
+    handleClick() {}
 
     onobjectselect(event) {
-        console.log('u chose ', event.detail);
         if (event.detail.input) {
             getSobjectFieldList(event.detail.input.split(' - ')[1]).then(
                 (response) => {
-                    // console.log(response)
                     let arr = response.fields;
                     this.sObjectFieldList = [
                         ...arr.map((el) => el.label + ' - ' + el.name)

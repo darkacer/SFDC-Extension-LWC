@@ -47,7 +47,6 @@ const fireRest2 = async (orgURL, purpose, token) => {
             // or check for response.status
             throw new Error(response.statusText);
     } catch (err) {
-        console.log('erroris ', err);
         PubSub.publish('customException', {
             message: 'Something went wrong while communicating with your org',
             type: 'error',
@@ -55,7 +54,6 @@ const fireRest2 = async (orgURL, purpose, token) => {
         });
     }
     return response ? response.json() : null;
-    //console.log('respornc ', response)
 };
 
 const flattenObject = (ob) => {
@@ -99,10 +97,7 @@ const makeQuery = (query) => {
 
 const getSobjectList = () => {
     let index = getValue('selectIndex');
-    console.log('before getting sobject index is ', index);
-    console.log('idToOrgObj', getValue('idToOrgObj'));
     let org = getValue('idToOrgObj')[index];
-    console.log('before getting sobject org is ', org);
     fireRest2(org.domain, 'sobjects/', org.value).then((response) => {
         setValue('sobjectList', response.sobjects);
     });
@@ -118,6 +113,15 @@ const getSobjectFieldList = (sobjectName) => {
     );
 };
 
+const getRecordDetail = (sobjectName, recordId) => {
+    let index = getValue('selectIndex');
+    let org = getValue('idToOrgObj')[index];
+    return fireRest2(
+        org.domain,
+        'sobjects/' + sobjectName + '/' + recordId,
+        org.value
+    );
+};
 const convertToCSV = (objArray) => {
     let array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
     if (!Array.isArray(array)) array = [array];
@@ -134,9 +138,10 @@ const convertToCSV = (objArray) => {
             if (line !== '') line += ',';
 
             const item = array[i][index] ? array[i][index] : '';
+
             line +=
-                typeof item === 'object' && item !== null
-                    ? ConvertToCSV(item)
+                typeof item === 'object' && item !== null && item !== undefined
+                    ? convertToCSV(item)
                     : item;
         }
         str += line + '\r\n';
@@ -153,5 +158,6 @@ export {
     getSobjectList,
     getSobjectFieldList,
     convertToCSV,
-    removeAttributes
+    removeAttributes,
+    getRecordDetail
 };

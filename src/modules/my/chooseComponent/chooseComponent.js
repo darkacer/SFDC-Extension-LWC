@@ -51,8 +51,6 @@ export default class ChooseComponent extends LightningElement {
 
         this.actions = [...this.actions];
         this.currentAction = this.actions[event.target.dataset.index].api;
-
-        console.log(JSON.stringify(this.actions));
     }
 
     ondecrease() {

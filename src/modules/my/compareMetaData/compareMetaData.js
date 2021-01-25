@@ -14,7 +14,6 @@ export default class CompareMetaData extends LightningElement {
     @track datatable2;
 
     bothSelected(event) {
-        console.log('you selected  2 ! = ', JSON.stringify(event.detail));
         if (event.detail.length === 2) {
             this.showQueryBuilder = true;
             this.orgToQuery = event.detail;
@@ -28,15 +27,9 @@ export default class CompareMetaData extends LightningElement {
     }
 
     queryReady(event) {
-        console.log('query is ', event.detail);
         let query = event.detail.query;
         let key = event.detail.key;
 
-        console.log(
-            'before making dual query ',
-            this.orgToQuery[0],
-            this.orgToQuery[0].domain
-        );
         Promise.all([
             makeQueryAll(
                 JSON.parse(this.orgToQuery[0]).domain,
@@ -49,8 +42,6 @@ export default class CompareMetaData extends LightningElement {
                 query
             )
         ]).then((response) => {
-            console.log('response is ', JSON.stringify(response));
-
             if (response[0].done && response[1].done) {
                 // let records0 = removeAttributes(flattenObject(response[0].records))
                 // let records1 = removeAttributes(flattenObject(response[1].records))
@@ -63,10 +54,6 @@ export default class CompareMetaData extends LightningElement {
                     .map((el) => removeAttributes(el));
                 // let records1 = response[1].records
 
-                // console.log(JSON.stringify(records0));
-                // console.log(JSON.stringify(records1));
-
-                console.log(JSON.stringify('main data =>'));
                 let tempObj = compareData(records0, records1, key);
                 this.datatable0 = tempObj.datatable0;
                 this.datatable1 = tempObj.datatable1;
@@ -76,9 +63,5 @@ export default class CompareMetaData extends LightningElement {
                 console.log('something went wrong!');
             }
         });
-        // makeQueryAll(query)
-        // .then(response => {
-        //     console.log()
-        // })
     }
 }

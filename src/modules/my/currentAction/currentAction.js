@@ -46,13 +46,10 @@ export default class CurrentAction extends LightningElement {
     }
 
     getSobjectList() {
-        console.log('inside get sobjectlist');
         this.sobjectList = getValue('sobjectList');
-        for (let i = 0; i < 10; i++) {
-            console.log(JSON.stringify(this.sobjectList[i]));
-        }
     }
 
+    // delete me
     onobjectselect(event) {
         console.log('you selected = ', event.detail);
     }

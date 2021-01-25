@@ -52,7 +52,6 @@ const convertResponseToMap = (res, keys) => {
         map[tempKey] = removeKeys(obj, keys);
         return map;
     }, {});
-    console.log(map);
     return map;
 };
 

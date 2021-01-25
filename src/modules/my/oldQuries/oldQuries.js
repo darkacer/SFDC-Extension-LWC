@@ -32,15 +32,11 @@ export default class OldQuries extends LightningElement {
             (a, b) => Date.parse(a.queryDate) - Date.parse(b.queryDate)
         );
 
-        console.log('sorted array ', queryArray);
-
         let resultMap = queryArray.reduce(function (map, obj) {
             map[obj.query + obj.orgName] = obj;
             return map;
         }, {});
-
-        console.log(resultMap, tempMap);
-
+        console.log(resultMap);
         localStorage.setItem('historyQueries', JSON.stringify([...tempMap]));
     }
 
@@ -106,7 +102,6 @@ export default class OldQuries extends LightningElement {
 
     copyQuery(event) {
         let query = event.target.dataset.query;
-        console.log('copying query ', query);
         PubSub.publish('queryCopy', {
             query: query
         });
@@ -130,7 +125,6 @@ export default class OldQuries extends LightningElement {
 
     deleteQuery(event) {
         let queryKey = event.target.dataset.querykey;
-        console.log(queryKey);
         let tempMap = new Map(
             JSON.parse(localStorage.getItem('historyQueries'))
         );
