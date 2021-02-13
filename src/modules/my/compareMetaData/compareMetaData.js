@@ -54,10 +54,10 @@ export default class CompareMetaData extends LightningElement {
                     .map((el) => removeAttributes(el));
                 // let records1 = response[1].records
 
-                let tempObj = compareData(records0, records1, key);
-                this.datatable0 = tempObj.datatable0;
-                this.datatable1 = tempObj.datatable1;
-                this.datatable2 = tempObj.datatable2;
+                // let tempObj = compareData(records0, records1, key);
+                this.datatable0 = compareData(records0, records1, key);
+                // this.datatable1 = tempObj.datatable1;
+                // this.datatable2 = tempObj.datatable2;
                 this.showDatatable = true;
             } else {
                 console.log('something went wrong!');

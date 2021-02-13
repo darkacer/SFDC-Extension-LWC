@@ -14,6 +14,15 @@ const convertResponseToMap = (res, keys) => {
     return mapper;
 };
 
+// appends given char to all keys of json
+const renameObjKeys = (obj, appendChar) => {
+    Object.keys(obj).forEach((el) => {
+        obj[el + appendChar] = obj[el];
+        delete obj[el];
+    });
+    return obj;
+};
+
 const compareData = (response0, response1, key) => {
     let keyList = key.split(',');
     let map1 = convertResponseToMap(response0, keyList);
@@ -21,6 +30,8 @@ const compareData = (response0, response1, key) => {
     let datatable0 = [];
     let datatable1 = [];
     let datatable2 = [];
+    console.log(JSON.stringify(map1));
+    console.log(JSON.stringify(map2));
     Object.keys(map1).forEach((el) => {
         datatable0.push({ key: el });
         datatable1.push({ ...map1[el] });
@@ -42,15 +53,20 @@ const compareData = (response0, response1, key) => {
         }
     });
     console.log('$$$$$$$$$$$');
-    console.log(datatable0);
-    console.log(datatable1);
-    console.log(datatable2);
+    console.log(JSON.stringify(datatable0));
+    console.log(JSON.stringify(datatable1));
+    console.log(JSON.stringify(datatable2));
+    let finalDatatable = datatable0.map((el, i) => {
+        return {
+            ...el,
+            ...renameObjKeys(datatable1[i], '1'),
+            ...renameObjKeys(datatable2[i], '2')
+        };
+    });
 
-    return {
-        datatable0: datatable0,
-        datatable1: datatable1,
-        datatable2: datatable2
-    };
+    console.log(JSON.stringify(finalDatatable));
+
+    return finalDatatable;
 };
 
 export { compareData };
