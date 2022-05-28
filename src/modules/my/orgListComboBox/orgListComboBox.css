@@ -1,0 +1,12 @@
+.parent {
+    height: 15%;
+    width: 100%;
+    position: relative;
+}
+.child {
+    position: absolute;
+    left: 31%;
+    top: 50%;
+    transform: translate(-27%, 0%);
+    color: grey;
+}
