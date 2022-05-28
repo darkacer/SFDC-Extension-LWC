@@ -4,7 +4,7 @@ import { getValue, setValue } from 'my/stateManager';
 import PubSub from 'pubsub-js';
 const myBrowser = typeof chrome === 'undefined' ? browser : chrome;
 const serviceData = '/services/data';
-const version = '/v49.0/';
+const version = '/v53.0/';
 
 // removes attributes and gathers possoble columnnames
 const removeAttributes = (element) => {

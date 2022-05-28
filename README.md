@@ -29,3 +29,7 @@ chrome://extensions
 
     page, click "This Firefox" (in newer versions of Firefox), click "Load Temporary Add-on", then select any file in your extension's directory.
 ```
+
+for developement purposes,
+make your changes and run
+npm run build

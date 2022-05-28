@@ -11,4 +11,24 @@
             onchange={handleChange}
         ></lightning-combobox>
     </template>
+
+    <div class="parent">
+        <div class="child">Add an org Using Access token and domain</div>
+    </div>
+
+    <lightning-input
+        name="OrgUrl"
+        label="Org Url"
+        value={orgUrl}
+        onchange={orgUrlUpdated}
+    >
+    </lightning-input>
+    <lightning-input
+        name="AccessToken"
+        label="accessToken"
+        value={accessToken}
+        onchange={accessTokenUpdated}
+    >
+    </lightning-input>
+    <lightning-button label="Add Org" onclick={addOrg}> </lightning-button>
 </template>
