@@ -1,5 +1,6 @@
 import { LightningElement, track } from 'lwc';
-import { getOrgNames } from 'my/Utils';
+// import { getOrgNames } from 'my/Utils';
+import { getValue } from 'my/stateManager';
 import PubSub from 'pubsub-js';
 
 export default class DualOrgSelect extends LightningElement {
@@ -7,7 +8,8 @@ export default class DualOrgSelect extends LightningElement {
     @track orgList = [];
 
     connectedCallback() {
-        let index = 0;
+        //let index = 0;
+        /*
         getOrgNames((cookies) => {
             cookies.reverse().forEach((elem) => {
                 if (
@@ -30,6 +32,28 @@ export default class DualOrgSelect extends LightningElement {
                 });
             }
         });
+        */
+        let tempList = getValue('idToOrgObj');
+        console.log('tempList', tempList);
+        if (tempList) {
+            for (const key in tempList) {
+                if (Object.prototype.hasOwnProperty.call(tempList, key)) {
+                    this.orgList.push({
+                        index: key,
+                        value: tempList[key].value,
+                        domain: tempList[key].domain
+                    });
+                }
+            }
+        }
+
+        if (this.orgList.length >= 2) {
+            PubSub.publish('customException', {
+                message: 'You are signed in to 2 or more orgs',
+                type: 'success',
+                details: 'Select your orgs from the multi-select picklist'
+            });
+        }
     }
 
     renderedCallback() {
