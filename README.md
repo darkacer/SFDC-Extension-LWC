@@ -33,3 +33,5 @@ chrome://extensions
 for developement purposes,
 make your changes and run
 npm run build
+
+adding heere
